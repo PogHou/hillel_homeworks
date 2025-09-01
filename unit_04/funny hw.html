@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git_Push</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .dialog-table {
+            width: 100%;
+        }
+        
+        .dialog-cell {
+            padding: 15px;
+            vertical-align: top;
+        }
+        
+        .computer-cell {
+            background-color: #e3f2fd;
+            width: 50%;
+        }
+        
+        .human-cell {
+            background-color: #ffebee;
+            width: 50%;
+        }
+        
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        
+        .message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin: 10px 0;
+        }
+        
+        .computer-message {
+            background-color: #bbdefb;
+        }
+        
+        .human-message {
+            background-color: #ffcdd2;
+        }
+        
+        .left-align {
+            text-align: left;
+        }
+        
+        .right-align {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="dialog-table">
+        <!-- 1st row -->
+        <tr>
+            <!-- Блок 1 -->
+            <td class="dialog-cell computer-cell left-align">
+                <img class="avatar" src="img/retro.png" alt="loading">
+                <div class="message computer-message">
+                    <strong>ЗАГРУЗКА ЭТОГО ФАЙЛА<br>ЗАЙМЕТ ВСЕГО 50 МИНУТ</strong>
+                </div>
+            </td>
+            
+            <!-- Блок 2 -->
+            <td class="dialog-cell human-cell right-align">
+                <div class="message human-message">
+                    <strong>ЧТО ЗА БРЕД?<br>ЭТО МЕГАБАЙТНЫЙ ФАЙЛ!</strong>
+                </div>
+                <div class="message human-message">
+                    <strong>ПОЖАЛУЙСТА,<br>ПРОВЕРЬ ЕЩЕ<br>РАЗ!</strong>
+                </div>
+                <img class="avatar" src="img/angry.png" alt="human">
+            </td>
+        </tr>
+        
+        <!-- 2nd row -->
+        <tr>
+            <!-- Блок 3-->
+            <td class="dialog-cell computer-cell left-align">
+                <img class="avatar" src="img/computer-engineer.png" alt="thinking">
+            </td>
+            
+            <!-- Блок 4-->
+            <td class="dialog-cell computer-cell left-align">
+                <img class="avatar" src="img/computer.png" alt="cute">
+                <div class="message computer-message">
+                    <strong>ОЙ, ПРОСТИ</strong>
+                </div>
+            </td>
+        </tr>
+        
+        <!--3rd row-->
+        <tr>
+            <!-- Блок 5 -->
+            <td class="dialog-cell computer-cell left-align">
+                <img class="avatar" src="img/elearning.png" alt="Компьютер">
+                <div class="message computer-message">
+                    <strong>ЭТО ЗАЙМЕТ 123 ГОДА</strong>
+                </div>
+            </td>
+            
+            <!-- Блок 6 -->
+            <td class="dialog-cell human-cell right-align">
+                <img class="avatar" src="img/the-end.png" alt="занавес">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
