@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tables</title>
+    <link rel="stylesheet" href="./style.css" />
+    <title>figma+css</title>
 </head>
 <body>
-    <p>ola</p>
+    <header align="center">
+        <p>for scale use ctrl+mouse scroll</p>>
+        <p>clickon entities shows the size in px</p>
+        <p>by default the cursor highlights a group instead of just elemtnt of entire group </p>
+        <p>keeping alt user can select specific entity</p>
+        <p>"top", "left" etc shows margin around the element</p>
+        <p>also there are fonts and colours of this fonts</p>
+        <p>you CAN count distance between not only neighbour objects</p>
+        <p>figma allows to clone any picture to own directory
+            where you can edit it</p>
+    </header>
+
+    <main align="center">
+        <P> css file usually is called style.css</P>
+        <p>the first option is using "link rel..."</p>
+        <p>the second option is using pair tag "style" </p>
+        <p>the last one is adding style to specific tag. it's the worse option</p>
+
+        <p> any css rule include tag and свойства, двоеточие, значение, точка с запятой
+            p {color:red;}
+        </p>
+        <p>lorem3(lorem добавит текст а 3 означает сколько слов будет использовано</p>
+
+        <h1> ola amigo</h1>
+        <p> use "style" in a head block instead of body to avoid timing</p>
+
+        <p>devtools ctrl alt i</p>
+        <p> in style commands with 2 or moree words should be divided by "-"</p>
+        <div></div>
+        <div class="de"></div>
+        <div class="desc"></div>
+
+        <p class="txt">название класса должно описівать что внутри , а обрашаемся к нему в стилях через точку впереди</p>
+        <p class="description">Lorem ipsum dolor sit amet.</p>
+
+        <style>
+            h1 {
+                color:hsl(31, 82%, 43%)
+                
+            }
+            h1 {background-color: hsl(137, 82%, 43%);}
+            main {
+                background-color: hsl(300, 82%, 43%);
+            }
+            div {
+                background-color: hsl(61, 82%, 43%);
+                height: 100px;
+                width: 300px; //не делай так, чтоб верстка была адаптивной
+            }
+            .txt {
+                min-height:20 px;
+                color:hsl(270, 91%, 17%);
+                background-color: hsl(61, 82%, 43%);
+            }
+            .de {
+                background-color: hsl(137, 82%, 43%);
+                border-width: 5px;
+                border-color: black;
+                border-style: solid; <!--solid by_default, dashed пунктиром-->
+                border-style: dashed;
+                }
+        </style>
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>
