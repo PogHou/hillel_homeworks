@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset.css" />
+    <title>cw061</title>
+</head>
+
+<body>
+
+    <!--<div class="background-image">
+        <h1>Hello world</h1> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+        <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam animi ipsa numquam quam officiis, dicta, aliquid vel a placeat at ad. Quod obcaecati laboriosam aspernatur fugiat minima autem recusandae, quia magni!</p>
+        <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam animi ipsa numquam quam officiis, dicta, aliquid vel a placeat at ad. Quod obcaecati laboriosam aspernatur fugiat minima autem recusandae, quia magni!</p>
+    </div> -->
+
+    <h2>before hr tag all of tags always starts with new row</h2> 
+    <h3>there are two types of entities- blochni i inlaynovi</h3>
+    <h4>blochni to tag hr</h4>
+    <p>blochni raztyagivautsya na vsu dovjinu batkivskogo elementa.</p>
+    <div> nedodiv</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <span> inlaynovi zavzdi idyt' v ryadok</span>
+    <a href="#">linkodnako</a>
+    <input type="text" />
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <div class="box">
+        <p>100% of parent element</p>
+<div>Lorem ipsum dolor sit amet.</div>
+<div>Lorem ipsum dolor sit amet consectetur.</div>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+<div>Lorem ipsum dolor sit amet.</div>
+<div>Lorem ipsum dolor sit amet consectetur.</div>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+<div>Lorem ipsum dolor sit amet.</div>
+<div>Lorem ipsum dolor sit amet consectetur.</div>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+</div>
+    <span> inlaynovi zavzdi idyt' v ryadok. vonu zaimaut tilki rozmir svogo tekstu</span>
+    <a href="#">linkodnako</a>
+
+        <style>
+            body{
+                height:100%
+                background-color:red;
+            }
+
+            .box{
+                border: 2px solid blue;
+                max-width:400px;
+                background-color: aqua;
+                display: inline; /*tak mojna zrobutu blochniy element inlinovim*/
+            }
+
+            div {
+                border: 1px solid green;
+                font-size: 30px;
+                display:inline-block; /*it has opportunities of both types - block and inline. NOW WE HAVE ABILITY TO USE MARGIN AND PADDING */
+                margin-right:60px;
+                margin-bottom:30px;
+
+            }
+
+            .span{
+                border 2px solid black;
+                display:block; /*tak mojna zrobutu inline element blochnim*/
+                margin-right:60px;
+                margin-bottom:30px; /*bottom & top margin doesn't work with inline elements, also, will be problems with padding, so you have to do it block or grid,flex*/
+            }
+
+            .text{
+                margin-top:30px;
+                margin-bottom:50px; /* ахаха  схлопывание марджинов єто значит пежду 1 и 2 будет не 80пикселей а только 50, большее поглощает меньшее*/
+
+                padding-right:40px;
+                padding-bottom:40px;
+                border: 2px solid black;
+                border-radius: 20px;
+                background-color:green;
+            }
+
+            .background-image {
+                /*backgroud-color: #fcc;*/
+                padding-bottom: 300px; /*чем больше пєддинг тем больше можно увидеть повторений*/
+                background-repeat:no-repeat; /*можно не повторять , или повторять по оси х или у, по умолчанию -повторять */
+                background-image:url("https://i.pinimg.com/736x/a2/fe/21/a2fe21da9ce7d1698f5b48cdb506c853.jpg"); /*the same in src*/
+                
+            }
+    </style>
+
+</body>
+</html>
