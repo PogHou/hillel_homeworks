@@ -5,121 +5,193 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Greenshop</title>
         <link rel="stylesheet" href="../reset.css">
+
         <style>
-            body{font-family:Arial, Helvetica, sans-serif;color:#333}
-
-            .container{
-            width:100%;
-            margin:0 auto;
-            background:#fff;
-            padding:30px 120px 52px 120px;
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                color:#333;
             }
 
-            .header{
-            padding:8px 0 25px;
-            }
-            .header-inner{font-size:0; max-width:1200px; margin:0 auto;}
-
-            .logo, .nav, .login{
-            display:inline-block;
-            vertical-align:middle;
-            font-size:16px;
+            .container {
+                width:100%;
+                background:#fff;
+                padding:30px 0 52px 0;
+                box-sizing:border-box;
             }
 
-            .logo{width:200px}
-
-            .nav{width:740px;text-align:center}
-            .nav a{display:inline-block;padding:6px 12px;text-decoration:none;color:#666;margin:0 20px;position:relative}
-            .nav a:hover{color:#333}
-            .nav a.active{font-weight:600}
-            .nav a.active:after{content:'';display:block;height:4px;width:45px;background:#46A358;margin:8px auto 0;border-radius:2px;}
-
-            .login{width:220px;text-align:right}
-            .login .btn{
-            display:inline-block;padding:8px 14px;background:#46A358;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;}
-            .login .btn img{vertical-align:middle; margin-right:6px; height:16px;}
-
-            .banner{
-            margin-top:12px;
-            padding:26px;
-            background:#f5f5f5;
-            max-width:1200px;
-            margin-left:auto;
-            margin-right:auto;
+            .header {
+                padding:8px 0 25px;}
+            .header-inner {
+                font-size:0; 
+                max-width:1200px; 
+                margin:0 auto;
             }
 
-            .banner-inner{font-size:0}
-
-            .hero-text{
-            display:inline-block;
-            vertical-align:middle;
-            width:58%;
-            padding:40px 36px 40px 36px;
-            font-size:14px;
-            line-height:1.5;
+            .logo, .nav, .login {
+                display:inline-block; 
+                vertical-align:top; 
+                font-size:16px;
             }
 
-            .hero-text .eyebrow{
-            text-transform:uppercase;color:#727272;font-size:14px;letter-spacing:2px;margin-bottom:18px;display:block;
+            .logo {
+                width:200px;
+                padding-top:6px;
             }
 
-            .hero-text h1{
-            margin:0 0 14px 0;
-            font-size:72px;line-height:0.95;font-weight:800;color:#3a3a3a;letter-spacing:-1px;text-transform:uppercase;
+            .nav {
+                width:740px; 
+                text-align:center; 
+                padding-top:10px;
             }
-            .hero-text h1 .accent{color:#46A358}
 
-            .hero-text p.lead{color:#8f8f8f;max-width:520px}
+            .nav a {
+                display:inline-block; 
+                padding:6px 12px; 
+                text-decoration:none; 
+                color:#666; 
+                margin:0 20px; 
+                position:relative;
+            }
 
-            .hero-text .shop-button{display:inline-block;margin-top:26px;padding:12px 22px;background:#46A358;color:#fff;border-radius:6px;text-decoration:none;font-weight:700}
+            .nav a:hover {
+                color:#333
+            }
 
-            .hero-media{ 
-            display:inline-block;
-            vertical-align:middle; 
-            width:36%;
-            text-align:right;
-            padding-right:10px;
-            } 
-            .hero-media img{max-width:450px; height:auto; display:inline-block}
+            .nav a.active {
+                font-weight:600
+            }
 
-        </style> 
-    </head> 
+            .nav a.active:after {
+                content:''; 
+                display:block; 
+                height:4px; 
+                width:45px; 
+                background:#46A358; 
+                margin:8px auto 0;
+                border-radius:2px;
+            }
+
+            .login {
+                width:220px; 
+                text-align:right; 
+                padding-top:8px;
+            }
+
+            .login .btn {
+                display:inline-block; 
+                padding:8px 14px; 
+                background:#46A358; 
+                color:#fff; 
+                border-radius:8px; 
+                text-decoration:none; 
+                font-weight:600;
+            }
+
+            .login .btn img {
+                vertical-align:middle; 
+                margin-right:6px; 
+                height:16px;
+            }
+
+            .banner {
+                margin-top:12px; 
+                padding:26px 0;
+                background:#f5f5f5; 
+                width:100%; 
+                box-sizing:border-box;
+            }
+
+            .banner-inner {
+                max-width:1200px; 
+                margin:0 auto; 
+                text-align:right;
+            }
+
+            .hero-text {
+                display:inline-block;
+                vertical-align:middle;
+                max-width: calc(1200px - 507px - 20px);
+                text-align:left;
+            }
+            .hero-text .eyebrow {
+                text-transform:uppercase;
+                color:#727272;
+                font-size:14px;
+                letter-spacing:2px;
+                margin-bottom:18px;
+                display:block;
+            }
+            .hero-text h1 {
+                margin:0 0 20px 0;
+                font-size:70px;
+                line-height:1.1;
+                font-weight:800;
+                color:#3a3a3a;
+                letter-spacing:-1px;
+                text-transform:uppercase;
+            }
+            .hero-text h1 .accent {
+                color:#46A358;
+                font-weight:800;
+                white-space: nowrap;
+            }
+            .hero-text p.lead {
+                color:#8f8f8f;
+                font-size:16px;
+                line-height:1.6;
+                margin-bottom:32px;
+            }
+            .hero-text .shop-button {
+                display:inline-block;
+                padding:12px 22px;
+                background:#46A358;
+                color:#fff;
+                border-radius:6px;
+                text-decoration:none;
+                font-weight:700;
+            }
+
+            .hero-media {display:inline-block; vertical-align:middle;}
+            .hero-media img {width:507px; height:450px; object-fit:cover; display:block;}
+        </style>
+    </head>
+
     <body>
         <div class="container">
             <header class="header">
-            <div class="header-inner"
-                <div class="logo">
-                <img src="./img/logo-flower.png" alt="logo">
-                </div>
+                <div class="header-inner">
+                    <div class="logo">
+                        <img src="./img/logo-flower.png" alt="logo">
+                    </div>
+                    
+                    <nav class="nav">
+                        <a href="hw06.html" class="active">Home</a>
+                        <a href="part2practice.html">Shop</a>
+                        <a href="https://www.rhs.org.uk/plants/types/houseplants">Plant Care</a> 
+                        <a href="../unit_02/hw.html">Blogs</a> 
+                    </nav>
 
-                <nav class="nav" aria-label="Главная навигация">
-                <a href="hw06.html" class="active">Home</a>
-                <a href="part2practice.html">Shop</a>
-                <a href="https://www.rhs.org.uk/plants/types/houseplants">Plant Care</a> 
-                <a href="https://www.wix.com/blog/what-is-a-blog">Blogs</a> 
-                </nav>
-
-                <div class="login"> 
-                <a href="#" class="btn"><img src="./img/Logout.png" alt="logout"> Login</a>
+                    <div class="login"> 
+                        <a href="../unit_03/GREENSHOP/Login.html" class="btn"><img src="./img/Logout.png" alt="logout"> Login</a>
+                    </div> 
                 </div> 
-            </div> 
             </header>
 
             <section class="banner">
-            <div class="banner-inner">
-                <div class="hero-text">
-                <span class="eyebrow">Welcome to GreenShop</span>
-                <h1>LET'S MAKE A BETTER <span class="accent">PLANET</span></h1>
-                <p class="lead">We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!</p>
-                <a class="shop-button" href="#">SHOP NOW</a> 
+                <div class="banner-inner">
+                    <div class="hero-text">
+                        <span class="eyebrow">Welcome to GreenShop</span>
+                        <h1>
+                            LET'S MAKE A BETTER <span class="accent">PLANET</span>
+                        </h1>
+                        <p class="lead">We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create a unique Urban Jungle. Order your favorite plants!</p>
+                        <a class="shop-button" href="../unit_04/funny hw.html">SHOP NOW</a> 
+                    </div>
+                    <div class="hero-media"> 
+                        <img src="./img/flower.png" alt="Flower">
+                    </div> 
                 </div>
-
-                <div class="hero-media"> 
-                <img src="./img/flower.png" alt="Растение в горшке">
-                </div> 
-            </div>
             </section> 
-
         </div> 
-    </body> 
-</html> 
+    </body>
+</html>
