@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Shop</title>
+
+  <link rel="stylesheet" href="../reset.css">
+
+  <style>
+    @font-face {
+      font-family: 'Cera Pro Regular';
+      src: url('../fonts/Cera\ Pro\ Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Cera Pro Bold';
+      src: url('../fonts/Cera\ Pro\ Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Hanging Letters';
+      src: url('../fonts/Hanged-Letters.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Cera Pro Regular', sans-serif;
+      color: #333;
+      height: 100%;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 1440px;
+      margin: 0 auto;
+      min-height: 100%;
+    }
+
+    .aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 370px;
+      padding: 30px 20px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .categories {
+      font-family: 'Cera Pro Bold', sans-serif;
+      font-size: 18px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 30px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar ul li a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #e6f5eb;
+      color: #46A358;
+      border: 1px solid #46A358;
+    }
+
+    .sidebar ul li.active a {
+      color: #46A358;
+      font-weight: 700;
+    }
+
+    .ads {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      background-image: url('img/Group1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 82px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .ads:hover {
+      border: 2px solid #46A358;
+      background-color: rgba(70, 163, 88, 0.1);
+      transform: scale(1.02);
+    }
+
+    .ads span {
+      font-family: 'Hanging Letters', sans-serif;
+      font-weight: 400;
+      font-size:65px;
+      max-width: 266px;
+      max-height:65px;
+      color: #46A358;
+    }
+
+    .ads p {
+      font-family: 'Cera Pro Bold', sans-serif;
+      font-size: 23px;
+      margin: 0;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 20px 60px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .right-filters {
+      font-family: 'Cera Pro Bold', sans-serif;
+      font-size: 16px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .right-filters button {
+      padding: 8px 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .right-filters button:first-child {
+      color: #46A358;
+      font-weight: 600;
+    }
+
+    .right-filters button:hover {
+      border: 1px solid #46A358;
+      background-color: #f4fff5;
+      color: #46A358;
+    }
+
+    .left-filters select {
+      font-family: 'Cera Pro Regular', sans-serif;
+      font-size: 15px;
+      color: #666;
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .left-filters select:hover {
+      border-color: #46A358;
+    }
+
+    .pictures {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      row-gap: 40px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 258px;
+      gap: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 10px;
+    }
+
+    .card:hover {
+      border: 2px solid #46A358;
+      padding: 8px;
+      background-color: #f4fff5;
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #46A358;
+      font-weight: 600;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 50px;
+      gap: 15px;
+    }
+
+    .pagination a {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .pagination a.active {
+      background: #46A358;
+      color: #fff;
+      border-color: #46A358;
+    }
+
+    .pagination a:hover {
+      border-color: #46A358;
+      background-color: #f4fff5;
+      color: #46A358;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="aside">
+      <div class="sidebar">
+        <span class="categories">Categories</span>
+        <ul>
+          <li class="active"><a href="https://www.google.com">House Plants</a></li>
+          <li><a href="https://www.google.com">Potter Plants</a></li>
+          <li><a href="https://www.google.com">Seeds</a></li>
+          <li><a href="https://www.google.com">Small Plants</a></li>
+          <li><a href="https://www.google.com">Succulents</a></li>
+          <li><a href="https://www.google.com">Terrariums</a></li>
+          <li><a href="https://www.google.com">Gardening</a></li>
+          <li><a href="https://www.google.com">Accessories</a></li>
+        </ul>
+      </div>
+      <a href="https://www.google.com" class="ads">
+        <span>Super Sale</span>
+        <p>UP TO 75% OFF</p>
+        <img src="img/image0.png" alt="ads">
+      </a>
+    </div>
+
+    <div class="main">
+      <div class="filters">
+        <div class="right-filters">
+          <button class="active">All Plants</button>
+          <button>New Arrivals</button>
+          <button>Sale</button>
+        </div>
+        <div class="left-filters">
+          <span>Sort by:</span>
+          <select>
+            <option selected>Default sorting</option>
+            <option>Name: from A to Z</option>
+            <option>Name: from Z to A</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pictures">
+        <a href="https://www.google.com" class="card">
+          <img src="img/image1.png" alt="Barberton Daisy">
+          <span class="title">Barberton Daisy</span>
+          <span class="price">$119.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image2.png" alt="Angel Wing Begonia">
+          <span class="title">Angel Wing Begonia</span>
+          <span class="price">$169.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image3.png" alt="African Violet">
+          <span class="title">African Violet</span>
+          <span class="price">$199.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image4.png" alt="Beach Spider Lily">
+          <span class="title">Beach Spider Lily</span>
+          <span class="price">$129.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image5.png" alt="Blushing Bromeliad">
+          <span class="title">Blushing Bromeliad</span>
+          <span class="price">$139.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image6.png" alt="Aluminum Plant">
+          <span class="title">Aluminum Plant</span>
+          <span class="price">$179.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image7.png" alt="Bird’s Nest Fern">
+          <span class="title">Bird’s Nest Fern</span>
+          <span class="price">$99.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image8.png" alt="Broadleaf Lady Palm">
+          <span class="title">Broadleaf Lady Palm</span>
+          <span class="price">$59.00</span>
+        </a>
+        <a href="https://www.google.com" class="card">
+          <img src="img/image9.png" alt="Chinese Evergreen">
+          <span class="title">Chinese Evergreen</span>
+          <span class="price">$39.00</span>
+        </a>
+      </div>
+
+      <div class="pagination">
+        <a href="hw07.html" class="active">1</a>
+        <a href="https://www.google.com">2</a>
+        <a href="https://www.google.com">3</a>
+        <a href="https://www.google.com">4</a>
+        <a href="https://www.google.com">›</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

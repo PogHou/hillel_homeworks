@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Shop Blog</title>
+    <link rel="stylesheet" href="../reset.css">
+
+    <style>
+        @font-face {
+            font-family: 'Cera Pro Black';
+            src: url('../fonts/Cera\ Pro\ Black.otf') format('opentype');
+            font-weight: 900;
+        }
+
+        @font-face {
+            font-family: 'Cera Pro Bold';
+            src: url('../fonts/Cera\ Pro\ Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: 'Cera Pro Medium';
+            src: url('../fonts/Cera\ Pro\ Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Cera Pro Regular';
+            src: url('../fonts/Cera\ Pro\ Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+
+        body {
+            font-family: 'Cera Pro Regular', sans-serif;
+            color: #3d3d3d;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .up-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .right, .left {
+            display: flex;
+            align-items: center;
+            background-color: #f8f8f8;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .right img, .left img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        .description-one {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin: 0 20px;
+        }
+
+        .description-one h3 {
+            font-family: 'Cera Pro Black', sans-serif;
+            font-size: 18px;
+            color: #3d3d3d;
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .description-one p {
+            font-family: 'Cera Pro Regular', sans-serif;
+            font-size: 14px;
+            color: #727272;
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            background-color: #46A358;
+            color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #388e4a;
+            transform: scale(1.05);
+        }
+
+        .btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .down-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .down-block h2 {
+            font-family: 'Cera Pro Bold', sans-serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .down-block p {
+            font-family: 'Cera Pro Regular', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .blog-posts {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .one, .two, .three, .four {
+            width: 268px;
+            height: 362px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .one img,
+        .two img,
+        .three img,
+        .four img {
+            width: 100%;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .post-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .post-meta {
+            font-family: 'Cera Pro Medium', sans-serif;
+            font-size: 14px;
+            color: #46A358;
+        }
+
+        .post-title {
+            font-family: 'Cera Pro Bold', sans-serif;
+            color: #3d3d3d;
+            font-size: 20px;
+        }
+
+        .post-desc {
+            font-family: 'Cera Pro Regular', sans-serif;
+            font-size: 14px;
+            color: #727272;
+        }
+
+        .read-more {
+            font-family: 'Cera Pro Medium', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #46A358;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #388e4a;
+            transform: translateX(3px);
+        }
+
+        .read-more img {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="up-block">
+            <div class="right">
+                <img src="img/image1.png" alt="Summer Cactus plant">
+                <div class="description-one">
+                    <h3>Summer Cactus & Succulents</h3>
+                    <p>We are an online plant shop offering a wide range of cheap and trendy plants</p>
+                    <a href="https://www.google.com" class="btn">
+                        Find More
+                        <img src="img/Arrow-for-green-Right-Curved.png" alt="Arrow icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="left">
+                <img src="img/image2.png" alt="Styling Trends plant">
+                <div class="description-one">
+                    <h3>Styling Trends & Much More</h3>
+                    <p>We are an online plant shop offering a wide range of cheap and trendy plants</p>
+                    <a href="https://www.google.com" class="btn">
+                        Find More
+                        <img src="img/Arrow-for-green-Right-Curved.png" alt="Arrow icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="down-block">
+            <h2>Our Blog Posts</h2>
+            <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
+            
+            <div class="blog-posts">
+
+                <div class="one">
+                    <img src="img/01.png" alt="Cactus & Succulent Care">
+                    <div class="post-content">
+                        <div>
+                            <div class="post-meta">September 12 | Read in 6 minutes</div>
+                            <div class="post-title">Cactus & Succulent Care Tips</div>
+                            <div class="post-desc">Cacti are succulents are easy care plants for any home or patio.</div>
+                        </div>
+                        <a href="https://www.google.com" class="read-more">
+                            Read More
+                            <img src="img/Arrow-Right-Light-Outline.png" alt="Arrow icon">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="two">
+                    <img src="img/02.png" alt="Top Succulents for Home">
+                    <div class="post-content">
+                        <div>
+                            <div class="post-meta">September 13 | Read in 2 minutes</div>
+                            <div class="post-title">Top 10 Succulents for Your Home</div>
+                            <div class="post-desc">Best in hanging baskets. Prefers medium to high light.</div>
+                        </div>
+                        <a href="https://www.google.com" class="read-more">
+                            Read More
+                            <img src="img/Arrow-Right-Light-Outline.png" alt="Arrow icon">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="three">
+                    <img src="img/03.png" alt="Cacti Care Tips">
+                    <div class="post-content">
+                        <div>
+                            <div class="post-meta">September 15 | Read in 3 minutes</div>
+                            <div class="post-title">Cacti & Succulent Care Tips</div>
+                            <div class="post-desc">Cacti and succulents thrive in containers and because most are...</div>
+                        </div>
+                        <a href="https://www.google.com" class="read-more">
+                            Read More
+                            <img src="img/Arrow-Right-Light-Outline.png" alt="Arrow icon">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="four">
+                    <img src="img/04.png" alt="Best Houseplants Room By Room">
+                    <div class="post-content">
+                        <div>
+                            <div class="post-meta">September 15 | Read in 2 minutes</div>
+                            <div class="post-title">Best Houseplants Room By Room</div>
+                            <div class="post-desc">The benefits of houseplants are endless. In addition to...</div>
+                        </div>
+                        <a href="https://www.google.com" class="read-more">
+                            Read More
+                            <img src="img/Arrow-Right-Light-Outline.png" alt="Arrow icon">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
