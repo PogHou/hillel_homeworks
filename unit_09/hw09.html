@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Shop</title>
+    <link rel="stylesheet" href="../reset.css">
+
+    <style>
+        @font-face {
+        font-family: 'Cera Pro Regular';
+        src: url('../fonts/Cera Pro Regular.otf') format('opentype');
+        font-weight: 400;
+        }
+
+        @font-face {
+        font-family: 'Cera Pro Medium';
+        src: url('../fonts/Cera Pro Medium.otf') format('opentype');
+        font-weight: 500;
+        }
+
+        body {
+        font-family: 'Cera Pro Regular', sans-serif;
+        color: #3d3d3d;
+        margin: 0;
+        background: #fff;
+        }
+
+        .container {
+        width: 840px;
+        margin: 0 auto;
+        margin-top: 171px;
+        }
+
+        .filters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 23px;
+        margin-bottom: 31px;
+        }
+
+        .filters-left {
+        display: flex;
+        gap: 40px;
+        }
+
+        .filters-left button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 15px;
+        color: #3d3d3d;
+        transition: all 0.3s ease;
+        position: relative;
+        }
+
+        .filters-left button:first-child::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #46A358;
+        }
+
+        .filters-left button:hover {
+        color: #46A358;
+        font-size: 16px;
+        }
+
+        .filters-right {
+        font-size: 15px;
+        color: #3d3d3d;
+        }
+
+        .filters-right select {
+        font-size: 15px;
+        color: #3d3d3d;
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #fff;
+        cursor: pointer;
+        }
+
+        .main-content {
+        display: flex;
+        justify-content: space-between;
+        }
+
+        .product-card {
+        width: 258px;
+        text-align: left;
+        }
+
+        .product-image {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 8px;
+        display: block;
+        transition: all 0.3s ease;
+        }
+
+        .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        }
+
+        .product-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: #46A358;
+        transition: height 0.3s ease;
+        }
+
+        .product-image:hover::after {
+        height: 1px;
+        }
+
+        .action-icons {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+
+        .product-image:hover .action-icons {
+        opacity: 1;
+        }
+
+        .action-icons input {
+        display: none;
+        }
+
+        .action-icons label {
+        cursor: pointer;
+        }
+
+        .action-icons .icon {
+        width: 28px;
+        height: 28px;
+        background: #fff;
+        border-radius: 50%;
+        padding: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        }
+
+        .action-icons .icon:hover {
+        border: 1px solid #46A358;
+        }
+
+        .action-icons input:checked + .icon {
+        background: #46A358;
+        }
+
+        .action-icons input:checked + .icon img {
+        filter: brightness(0) invert(1);
+        }
+
+        .discount-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #46A358;
+        color: #fff;
+        font-family: 'Cera Pro Medium', sans-serif;
+        font-size: 16px;
+        padding: 4px 8px;
+        }
+
+        .product-name {
+        margin-top: 8px;
+        font-weight: 400;
+        font-size: 16px;
+        }
+
+        .product-price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #46A358;
+        }
+
+        .old-price {
+        font-size: 18px;
+        color: #a5a5a5;
+        text-decoration: line-through;
+        text-decoration-color: #cbcbcb;
+        margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="filters">
+
+            <div class="filters-left">
+                <button class="active">All Plants</button>
+                <button>New Arrivals</button>
+                <button>Sale</button>
+            </div>
+
+            <div class="filters-right">
+                Sort by:
+                <select>
+                <option selected>Default sorting</option>
+                <option>Name: from A to Z</option>
+                <option>Name: from Z to A</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="product-card">
+                <a href="#" class="product-image">
+                <img src="img/image1.png" alt="Barberton Daisy">
+                <div class="action-icons">
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/shopping.svg" alt="cart"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/heart.svg" alt="favorite"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/frame.svg" alt="compare"></span>
+                    </label>
+                </div>
+                </a>
+                <div class="product-name">Barberton Daisy</div>
+                <div class="product-price">$119.00</div>
+            </div>
+
+            <div class="product-card">
+                <a href="#" class="product-image">
+                <img src="img/image2.png" alt="Angel Wing Begonia">
+                <div class="action-icons">
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/shopping.svg" alt="cart"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/heart.svg" alt="favorite"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/frame.svg" alt="compare"></span>
+                    </label>
+                </div>
+                </a>
+                <div class="product-name">Angel Wing Begonia</div>
+                <div class="product-price">$169.00</div>
+            </div>
+
+            <div class="product-card">
+                <a href="#" class="product-image">
+                <div class="discount-badge">13% OFF</div>
+                <img src="img/image3.png" alt="African Violet">
+                <div class="action-icons">
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/shopping.svg" alt="cart"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/heart.svg" alt="favorite"></span>
+                    </label>
+                    <label>
+                    <input type="checkbox">
+                    <span class="icon"><img src="img/frame.svg" alt="compare"></span>
+                    </label>
+                </div>
+                </a>
+                <div class="product-name">African Violet</div>
+                <div class="product-price">
+                $199.00 <span class="old-price">$229.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
