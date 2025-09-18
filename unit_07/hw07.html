@@ -77,6 +77,7 @@
       display: block;
       padding: 8px 12px;
       border-radius: 5px;
+      /*border: 1px solid transparent; */
       cursor: pointer;
       transition: all 0.3s ease;
       color: #333;
@@ -86,7 +87,8 @@
     .sidebar ul li a:hover {
       background-color: #e6f5eb;
       color: #46A358;
-      border: 1px solid #46A358;
+      /*border: 1px solid #46A358;*/
+      outline: 1px solid #46A358; /*два варианта чтоб не прыгало при ховере- или добавить прозрачный бордер заранее или сделать бордер на пиксель внутри, а не снаружи */
     }
 
     .sidebar ul li.active a {
@@ -100,8 +102,8 @@
       align-items: center;
       text-align: center;
       gap: 10px;
-      background-image: url('img/Group1.png');
-      background-size: cover;
+      background-image: url('img/image0.png'); /*были поменены местами картинки, потому что цветок не прозрачный, но появилась рамка при ховере*/
+      background-size: 370px 370px;
       background-position: center;
       background-repeat: no-repeat;
       margin-bottom: 82px;
@@ -117,6 +119,7 @@
       border: 2px solid #46A358;
       background-color: rgba(70, 163, 88, 0.1);
       transform: scale(1.02);
+
     }
 
     .ads span {
@@ -288,7 +291,7 @@
       <a href="https://www.google.com" class="ads">
         <span>Super Sale</span>
         <p>UP TO 75% OFF</p>
-        <img src="img/image0.png" alt="ads">
+        <img src="img/Group1.png" alt="ads">
       </a>
     </div>
 
