@@ -73,11 +73,14 @@
       gap: 10px;
     }
 
+    .sidebar ul li {
+      list-style: none;
+    }
+
     .sidebar ul li a {
       display: block;
       padding: 8px 12px;
       border-radius: 5px;
-      /*border: 1px solid transparent; */
       cursor: pointer;
       transition: all 0.3s ease;
       color: #333;
@@ -87,8 +90,7 @@
     .sidebar ul li a:hover {
       background-color: #e6f5eb;
       color: #46A358;
-      /*border: 1px solid #46A358;*/
-      outline: 1px solid #46A358; /*два варианта чтоб не прыгало при ховере- или добавить прозрачный бордер заранее или сделать бордер на пиксель внутри, а не снаружи */
+      outline: 1px solid #46A358;
     }
 
     .sidebar ul li.active a {
@@ -102,7 +104,7 @@
       align-items: center;
       text-align: center;
       gap: 10px;
-      background-image: url('img/Group1.png'); /*были поменены местами картинки, потому что цветок не прозрачный, но появилась рамка при ховере*/
+      background-image: url('img/Group1.png');
       background-size: 370px 370px;
       background-position: center;
       background-repeat: no-repeat;
@@ -119,19 +121,15 @@
       border: 2px solid #46A358;
       background-color: rgba(70, 163, 88, 0.1);
       transform: scale(1.02);
-
     }
 
-    .ads span {
+    .ads .ads-text {
       font-family: 'Hanging Letters', sans-serif;
-      font-weight: 400;
-      font-size:65px;
-      max-width: 266px;
-      max-height:65px;
+      font-size: 65px;
       color: #46A358;
     }
 
-    .ads p {
+    .ads .ads-subtitle {
       font-family: 'Cera Pro Bold', sans-serif;
       font-size: 23px;
       margin: 0;
@@ -198,8 +196,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: flex-end;
       row-gap: 40px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .pictures li {
+      list-style: none;
     }
 
     .card {
@@ -243,7 +246,18 @@
       display: flex;
       justify-content: flex-end;
       margin-top: 50px;
+    }
+
+    .pagination ul {
+      list-style: none;
+      display: flex;
       gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pagination li {
+      list-style: none;
     }
 
     .pagination a {
@@ -277,34 +291,34 @@
     <div class="aside">
       <div class="sidebar">
         <span class="categories">Categories</span>
-        <ul>
-          <li class="active"><a href="https://www.google.com">House Plants</a></li>
-          <li><a href="https://www.google.com">Potter Plants</a></li>
-          <li><a href="https://www.google.com">Seeds</a></li>
-          <li><a href="https://www.google.com">Small Plants</a></li>
-          <li><a href="https://www.google.com">Succulents</a></li>
-          <li><a href="https://www.google.com">Terrariums</a></li>
-          <li><a href="https://www.google.com">Gardening</a></li>
-          <li><a href="https://www.google.com">Accessories</a></li>
+        <ul class="sidebar-list">
+          <li class="sidebar-item active"><a href="https://www.google.com" class="sidebar-link">House Plants</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Potter Plants</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Seeds</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Small Plants</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Succulents</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Terrariums</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Gardening</a></li>
+          <li class="sidebar-item"><a href="https://www.google.com" class="sidebar-link">Accessories</a></li>
         </ul>
       </div>
       <a href="https://www.google.com" class="ads">
-        <span>Super Sale</span>
-        <p>UP TO 75% OFF</p>
-        <img src="img/image0.png" alt="ads">
+        <span class="ads-text">Super Sale</span>
+        <p class="ads-subtitle">UP TO 75% OFF</p>
+        <img class="ads-image" src="img/image0.png" alt="ads">
       </a>
     </div>
 
     <div class="main">
       <div class="filters">
         <div class="right-filters">
-          <button class="active">All Plants</button>
-          <button>New Arrivals</button>
-          <button>Sale</button>
+          <button class="filter-btn active">All Plants</button>
+          <button class="filter-btn">New Arrivals</button>
+          <button class="filter-btn">Sale</button>
         </div>
         <div class="left-filters">
-          <span>Sort by:</span>
-          <select>
+          <span class="sort-label">Sort by:</span>
+          <select class="sort-select">
             <option selected>Default sorting</option>
             <option>Name: from A to Z</option>
             <option>Name: from Z to A</option>
@@ -314,60 +328,80 @@
         </div>
       </div>
 
-      <div class="pictures">
-        <a href="https://www.google.com" class="card">
-          <img src="img/image1.png" alt="Barberton Daisy">
-          <span class="title">Barberton Daisy</span>
-          <span class="price">$119.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image2.png" alt="Angel Wing Begonia">
-          <span class="title">Angel Wing Begonia</span>
-          <span class="price">$169.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image3.png" alt="African Violet">
-          <span class="title">African Violet</span>
-          <span class="price">$199.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image4.png" alt="Beach Spider Lily">
-          <span class="title">Beach Spider Lily</span>
-          <span class="price">$129.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image5.png" alt="Blushing Bromeliad">
-          <span class="title">Blushing Bromeliad</span>
-          <span class="price">$139.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image6.png" alt="Aluminum Plant">
-          <span class="title">Aluminum Plant</span>
-          <span class="price">$179.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image7.png" alt="Bird’s Nest Fern">
-          <span class="title">Bird’s Nest Fern</span>
-          <span class="price">$99.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image8.png" alt="Broadleaf Lady Palm">
-          <span class="title">Broadleaf Lady Palm</span>
-          <span class="price">$59.00</span>
-        </a>
-        <a href="https://www.google.com" class="card">
-          <img src="img/image9.png" alt="Chinese Evergreen">
-          <span class="title">Chinese Evergreen</span>
-          <span class="price">$39.00</span>
-        </a>
-      </div>
+      <ul class="pictures">
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image1.png" alt="Barberton Daisy">
+            <span class="title">Barberton Daisy</span>
+            <span class="price">$119.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image2.png" alt="Angel Wing Begonia">
+            <span class="title">Angel Wing Begonia</span>
+            <span class="price">$169.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image3.png" alt="African Violet">
+            <span class="title">African Violet</span>
+            <span class="price">$199.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image4.png" alt="Beach Spider Lily">
+            <span class="title">Beach Spider Lily</span>
+            <span class="price">$129.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image5.png" alt="Blushing Bromeliad">
+            <span class="title">Blushing Bromeliad</span>
+            <span class="price">$139.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image6.png" alt="Aluminum Plant">
+            <span class="title">Aluminum Plant</span>
+            <span class="price">$179.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image7.png" alt="Bird’s Nest Fern">
+            <span class="title">Bird’s Nest Fern</span>
+            <span class="price">$99.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image8.png" alt="Broadleaf Lady Palm">
+            <span class="title">Broadleaf Lady Palm</span>
+            <span class="price">$59.00</span>
+          </a>
+        </li>
+        <li class="pictures-item">
+          <a href="https://www.google.com" class="card">
+            <img class="card-img" src="img/image9.png" alt="Chinese Evergreen">
+            <span class="title">Chinese Evergreen</span>
+            <span class="price">$39.00</span>
+          </a>
+        </li>
+      </ul>
 
       <div class="pagination">
-        <a href="hw07.html" class="active">1</a>
-        <a href="https://www.google.com">2</a>
-        <a href="https://www.google.com">3</a>
-        <a href="https://www.google.com">4</a>
-        <a href="https://www.google.com">›</a>
+        <ul class="pagination-list">
+          <li class="pagination-item"><a href="hw07.html" class="pagination-link active">1</a></li>
+          <li class="pagination-item"><a href="https://www.google.com" class="pagination-link">2</a></li>
+          <li class="pagination-item"><a href="https://www.google.com" class="pagination-link">3</a></li>
+          <li class="pagination-item"><a href="https://www.google.com" class="pagination-link">4</a></li>
+          <li class="pagination-item"><a href="https://www.google.com" class="pagination-link">›</a></li>
+        </ul>
       </div>
     </div>
   </div>
