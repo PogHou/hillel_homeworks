@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Background</title>
+        <link rel="stylesheet" href="../reset.css" />
+        <style>
+        @font-face {
+            font-family: 'Cera Pro Regular';
+            src: url('../fonts/Cera Pro Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cera Pro Bold';
+            src: url('../fonts/Cera Pro Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cera Pro Black';
+            src: url('../fonts/Cera Pro Black.otf') format('opentype');
+            font-weight: 900;
+        }
+        @font-face {
+            font-family: 'Cera Pro Medium';
+            src: url('../fonts/Cera Pro Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #ffffff, #e8f8eb);
+            padding: 30px 60px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-item {
+            width: 22%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-item .icon {
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .icon-garden {
+            background-image: url("./img/flowerone.png");
+        }
+        .icon-renovation {
+            background-image: url("./img/flowertwo.png");
+        }
+        .icon-watering {
+            background-image: url("./img/flowerthree.png");
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+        .btn-join {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .footer-middle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #a8e6a3, #6ccf73);
+            padding: 20px 30px;
+            border-radius: 8px;
+        }
+
+        .footer-logo {
+            width: 150px;
+            height: 40px;
+            background-image: url("./img/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-contacts li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-location,
+        .icon-mail,
+        .icon-phone {
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .icon-location {
+            background-image: url("");
+        }
+        .icon-mail {
+            background-image: url("");
+        }
+        .icon-phone {
+            background-image: url("");
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .footer-list {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .footer-column {
+            width: 22%;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .footer-column li {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .social-icons,
+        .payments {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .social-icons li,
+        .payments li {
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .icon-fb {
+            background-image: url("./img/Facebook.svg");
+        }
+        .icon-ig {
+            background-image: url("./img/Instagram.svg");
+        }
+        .icon-tw {
+            background-image: url("./img/Twitter.svg");
+        }
+        .icon-in {
+            background-image: url("./img/Linkidin.svg");
+        }
+        .icon-yt {
+            background-image: url("./img/Youtube.svg");
+        }
+
+        .footer-copy {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+        </style>
+    </head>
+    <body>
+        <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-item garden-care">
+            <div class="icon icon-garden"></div>
+            <h3 class="item-title">Garden Care</h3>
+            <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+            </p>
+            </div>
+
+            <div class="footer-item plant-renovation">
+            <div class="icon icon-renovation"></div>
+            <h3 class="item-title">Plant Renovation</h3>
+            <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+            </p>
+            </div>
+
+            <div class="footer-item watering-garden">
+            <div class="icon icon-watering"></div>
+            <h3 class="item-title">Watering Garden</h3>
+            <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+            </p>
+            </div>
+
+            <div class="footer-item newsletter">
+            <h3 class="item-title">Would you like to join newsletters?</h3>
+            <form class="newsletter-form">
+                <input type="email" placeholder="enter your email address..." />
+                <button type="submit" class="btn-join">Join</button>
+            </form>
+            <p class="item-text">
+                We usually post offers and challenges in newsletter. We’re your
+                online houseplant destination. We offer a wide range of houseplants
+                and accessories shipped directly from our (green)house to yours!
+            </p>
+            </div>
+        </div>
+
+        <div class="footer-middle">
+            <div class="footer-logo"></div>
+            <ul class="footer-contacts">
+            <li>
+                <span class="icon icon-location"></span> 70 West Buckingham Ave.
+                <br />
+                Farmingdale, NY 11735
+            </li>
+            <li><span class="icon icon-mail"></span> contact@greenshop.com</li>
+            <li><span class="icon icon-phone"></span> +88 01911 717 490</li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <ul class="footer-list">
+            <li class="footer-column">
+                <h4>My Account</h4>
+                <ul>
+                <li>My Account</li>
+                <li>Our stores</li>
+                <li>Contact us</li>
+                <li>Career</li>
+                <li>Specials</li>
+                </ul>
+            </li>
+            <li class="footer-column">
+                <h4>Help & Guide</h4>
+                <ul>
+                <li>Help Center</li>
+                <li>How to Buy</li>
+                <li>Shipping & Delivery</li>
+                <li>Product Policy</li>
+                <li>How to Return</li>
+                </ul>
+            </li>
+            <li class="footer-column">
+                <h4>Categories</h4>
+                <ul>
+                <li>House Plants</li>
+                <li>Potter Plants</li>
+                <li>Seeds</li>
+                <li>Small Plants</li>
+                <li>Accessories</li>
+                </ul>
+            </li>
+            <li class="footer-column social">
+                <h4>Social Media</h4>
+                <ul class="social-icons">
+                <li class="icon-fb"></li>
+                <li class="icon-ig"></li>
+                <li class="icon-tw"></li>
+                <li class="icon-in"></li>
+                <li class="icon-yt"></li>
+                </ul>
+                <h4>We accept</h4>
+                <img src="./img/visa.png" alt="pay" />
+            </li>
+            </ul>
+        </div>
+
+        <div class="footer-copy">
+            <p>© 2021 GreenShop. All Rights Reserved.</p>
+        </div>
+        </footer>
+    </body>
+</html>
