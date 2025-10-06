@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+      .box1,
+      .box2 {
+        width: 100px;
+        color: #fff;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+      }
+      /*.box1:hover ~ .box2  означает что система
+           должна найти рядом с бокс 1 єлемент бокс2,
+           но тогда ховер будет только показівать 
+           бокс2 , и нельзя будет навестин на него.
+           убираем знак тильды и вкладываем бокс2 в бокс в ащтиэмэле, и тогд*/
+      .box1:hover .box2 {
+        display: flex;
+      }
+
+      .box1 {
+        position: relative;
+      }
+
+      .box2 {
+        display: none; /*become hidden.
+        through "hover" will show it*/
+        background-color: blue;
+        position: absolute; /*теперь бокс два показівается поверх бокс 1*/
+        left: 100%; /*смещаем бокс2 влево на width родительского эоемента*/
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .navigation-list {
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+      .navigation-link {
+        display: block;
+        color: black;
+        /*width: 100px; если задать фиксированый размер то можно использовать болд в тексте*/
+        text-align: center;
+        padding: 10px 15px;
+        background-color: red;
+        border-radius: 10px;
+      }
+      /*
+      .navigation-link:hover{
+        border-bottom: 3px solid lime;
+        text-shadow: 2px 2px 4px black;
+        - вместо font-weight: bold;, потому что иначе верстка прыгает
+      }
+          .navigation-item:hover .navigation-link {
+          text-align:center;
+        border-bottom: 3px solid lime;
+      }
+        
+      єто первый способ, простой, но не идеальный, с бордером*/
+
+      /*второй способ через псевдоэлемент и абсолют*/
+      .navigation-item:hover .navigation-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background-color: lime;
+        width: 100%;
+      }
+
+      .navigation-item {
+        position: relative;
+      }
+      .navigation-item:hover .sub-navigation {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sub-navigation {
+        position: absolute;
+        /*right: 0;*/
+        display: none;
+        background-color: blue;
+        width: 250%;
+        top: 100%;
+        padding-top: 20px; /*отступ и клип позволяет курсору переместиться в сабсписок*/
+        background-clip: content-box;
+      }
+      .sub-navigation-link {
+        color: #fff;
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+      }
+      .sub-navigation-item:hover .sub-navigation-link {
+        background-color: lime;
+        color: #000;
+      }
+
+      .navigation-link:hover {
+        background-color: aqua;
+      }
+
+      .video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1; /* чтобы контент был поверх */
+      }
+      /*или ставить позишн:абсолют 
+      и можно без з-индекса 
+      и не надо будет все элементы изменены на релатив, 
+      чтоб перекрывать фиксед, с помощбю з-индекса*/
+      body {
+  position: relative;
+  z-index: 1;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      1
+      <span>ffjknfrjfn</span>
+
+      <div class="box2">2</div>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+        consectetur qui sint, deleniti explicabo nihil doloribus ab provident
+        voluptatibus totam amet aliquid incidunt corrupti sunt. Esse obcaecati
+        rem at commodi quasi, similique dolorem optio voluptates consectetur
+        nam. Velit, aliquam pariatur? Dignissimos et nemo eligendi sequi ullam
+        alias soluta ipsam eveniet.
+      </p>
+    </div>
+
+    <div class="container">
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-item">
+            <a href="#" class="navigation-link">Home</a>
+          </li>
+          <li class="navigation-item">
+            <a href="#" class="navigation-link">About</a>
+            <ul class="sub-navigation">
+              <li class="sub-navigation-item">
+                <a href="#" class="sub-navigation-link">Cool</a>
+              </li>
+              <li class="sub-navigation-item">
+                <a href="#" class="sub-navigation-link">Wow</a>
+              </li>
+              <li class="sub-navigation-item">
+                <a href="#" class="sub-navigation-link">Amazing</a>
+              </li>
+              <li class="sub-navigation-item">
+                <a href="#" class="sub-navigation-link">Wonderful</a>
+              </li>
+              <li class="sub-navigation-item">
+                <a href="#" class="sub-navigation-link">Great</a>
+              </li>
+            </ul>
+          </li>
+          <li class="navigation-item">
+            <a href="#" class="navigation-link">Some</a>
+          </li>
+          <li class="navigation-item">
+            <a href="#" class="navigation-link">Any</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!--
+    <iframe
+      src="https://www.npr.org/"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+ <!-- controls вместо автоплей и будет просто кнопка старт
+  а луп-зацикливает -->
+    <video class="video" width="480" autoplay loop>
+      <source src="./video.mp4" type="video/mp4" />
+    </video>
+  </body>
+</html>
