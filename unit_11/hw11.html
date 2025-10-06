@@ -3,104 +3,149 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Background</title>
+        <title>GreenShop Footer</title>
         <link rel="stylesheet" href="../reset.css" />
         <style>
         @font-face {
-            font-family: 'Cera Pro Regular';
-            src: url('../fonts/Cera Pro Regular.otf') format('opentype');
+            font-family: "Cera Pro";
+            src: url("../fonts/Cera Pro Regular.otf") format("opentype");
             font-weight: 400;
-            font-style: normal;
         }
         @font-face {
-            font-family: 'Cera Pro Bold';
-            src: url('../fonts/Cera Pro Bold.otf') format('opentype');
-            font-weight: 700;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Cera Pro Black';
-            src: url('../fonts/Cera Pro Black.otf') format('opentype');
-            font-weight: 900;
-        }
-        @font-face {
-            font-family: 'Cera Pro Medium';
-            src: url('../fonts/Cera Pro Medium.otf') format('opentype');
+            font-family: "Cera Pro";
+            src: url("../fonts/Cera Pro Medium.otf") format("opentype");
             font-weight: 500;
+        }
+        @font-face {
+            font-family: "Cera Pro";
+            src: url("../fonts/Cera Pro Bold.otf") format("opentype");
+            font-weight: 700;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            color: #333;
+            font-family: "Cera Pro", sans-serif;
+            color: #727272;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 610px;
+            margin: 0;
         }
 
         .footer {
+            width: 1200px;
+            height: 610px;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(to bottom, #ffffff, #e8f8eb);
-            padding: 30px 60px;
+            background: linear-gradient(to bottom, #ffffff, #edf6ee);
+            padding: 40px 60px;
+            box-sizing: border-box;
         }
 
         .footer-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 30px;
-            margin-bottom: 20px;
+            padding-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .footer-item {
-            width: 22%;
+            width: 20%;
+            position: relative;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
         .footer-item .icon {
-            width: 60px;
-            height: 60px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            position: relative;
+            width: 100px;
+            height: 105px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .icon-garden {
-            background-image: url("./img/flowerone.png");
+            background-image: url("./img/flowerone.png"), url("./img/Ellipse.png");
         }
         .icon-renovation {
-            background-image: url("./img/flowertwo.png");
+            background-image: url("./img/flowertwo.png"), url("./img/Ellipse.png");
         }
         .icon-watering {
-            background-image: url("./img/flowerthree.png");
+            background-image: url("./img/flowerthree.png"), url("./img/Ellipse.png");
+        }
+
+        .icon-garden,
+        .icon-renovation,
+        .icon-watering {
+            background-repeat: no-repeat;
+            background-size: auto 95px, 74px 74px;
+            background-position: center, 5px 25px;
+        }
+        .item-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #3d3d3d;
+            margin-bottom: 4px;
+        }
+
+        .item-text {
+            font-size: 14px;
+            color: #727272;
+            line-height: 1.5;
+        }
+
+        .newsletter {
+            margin-top: 25px;
+            width: 354px;
+            height: 202px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 10px;
+            color: #727272;
         }
 
         .newsletter-form {
             display: flex;
-            margin-top: 10px;
+            margin-top: 5px; 
         }
+
         .newsletter-form input {
-            flex: 1;
-            padding: 10px;
+            width: 270px;
+            height: 40px;
             border: 1px solid #ccc;
             border-radius: 5px 0 0 5px;
+            font-family: "Cera Pro";
+            color: #acacac;
+            padding-left: 12px;
+            font-size: 14px;
         }
+
         .btn-join {
-            background-color: #4caf50;
+            width: 84px;
+            height: 40px;
+            background-color: #46a358;
             border: none;
             color: white;
-            padding: 10px 20px;
             border-radius: 0 5px 5px 0;
             cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
         }
 
         .footer-middle {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(90deg, #a8e6a3, #6ccf73);
-            padding: 20px 30px;
+            background-image: url("./img/Rectangle.png");
+            padding: 25px 35px;
             border-radius: 8px;
+            margin-bottom: 30px;
         }
 
         .footer-logo {
@@ -114,41 +159,27 @@
         .footer-contacts {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            width: 80%;
             list-style: none;
-            flex-wrap: wrap;
-            gap: 30px;
+            font-size: 14px;
+            color: #727272;
+            line-height: 1.5;
         }
 
         .footer-contacts li {
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .icon-location,
-        .icon-mail,
-        .icon-phone {
-            width: 20px;
-            height: 20px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .icon-location {
-            background-image: url("");
-        }
-        .icon-mail {
-            background-image: url("");
-        }
-        .icon-phone {
-            background-image: url("");
+            gap: 10px;
         }
 
         .footer-bottom {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            flex-wrap: nowrap;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 20px;
+            margin-bottom: 20px; 
         }
 
         .footer-list {
@@ -156,36 +187,47 @@
             list-style: none;
             justify-content: space-between;
             width: 100%;
+            gap: 40px;
         }
 
         .footer-column {
-            width: 22%;
+            width: 25%;
+        }
+
+        .footer-column h4 {
+            font-weight: 700;
+            font-size: 16px;
+            color: #3d3d3d;
+            margin-bottom: 10px;
         }
 
         .footer-column ul {
             list-style: none;
-            margin-top: 10px;
+            margin: 0;
+            padding: 0;
         }
 
         .footer-column li {
-            margin: 5px 0;
+            margin: 6px 0;
+            font-size: 14px;
+            color: #727272;
             cursor: pointer;
+            line-height: 1.5;
         }
 
-        .social-icons,
-        .payments {
+        .social-icons {
             display: flex;
             gap: 10px;
             list-style: none;
             margin-top: 10px;
         }
 
-        .social-icons li,
-        .payments li {
-            width: 30px;
-            height: 30px;
+        .social-icons li {
+            width: 28px;
+            height: 28px;
             background-repeat: no-repeat;
             background-size: contain;
+            margin-bottom: 20px;
         }
 
         .icon-fb {
@@ -204,14 +246,22 @@
             background-image: url("./img/Youtube.svg");
         }
 
+        .footer-column img {
+            margin-top: 10px;
+            width: 120px;
+            height: auto;
+        }
+
         .footer-copy {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 0;
+            padding-top: 0;
             font-size: 14px;
-            color: #666;
+            color: #727272;
         }
         </style>
     </head>
+
     <body>
         <footer class="footer">
         <div class="footer-top">
@@ -255,17 +305,100 @@
             </p>
             </div>
         </div>
-
         <div class="footer-middle">
             <div class="footer-logo"></div>
             <ul class="footer-contacts">
             <li>
-                <span class="icon icon-location"></span> 70 West Buckingham Ave.
-                <br />
+                <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.0918 8.92542C12.0918 7.77436 11.1591 6.84166 10.0081 6.84166C8.85787 6.84166 7.92517 7.77436 7.92517 8.92542C7.92517 10.0756 8.85787 11.0083 10.0081 11.0083C11.1591 11.0083 12.0918 10.0756 12.0918 8.92542Z"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.99959 17.5C7.58457 17.5 3.75 13.2989 3.75 8.8322C3.75 5.33539 6.54758 2.5 9.99959 2.5C13.4516 2.5 16.25 5.33539 16.25 8.8322C16.25 13.2989 12.4154 17.5 9.99959 17.5Z"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                </svg>
+                70 West Buckingham Ave.<br />
                 Farmingdale, NY 11735
             </li>
-            <li><span class="icon icon-mail"></span> contact@greenshop.com</li>
-            <li><span class="icon icon-phone"></span> +88 01911 717 490</li>
+            <li>
+                <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M14.6208 7.51582C14.6208 7.51582 11.9457 10.7263 9.98917 10.7263C8.03345 10.7263 5.32835 7.51582 5.32835 7.51582"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2.0434 9.97397C2.0434 4.27556 4.02752 2.37665 9.9799 2.37665C15.9323 2.37665 17.9164 4.27556 17.9164 9.97397C17.9164 15.6716 15.9323 17.5713 9.9799 17.5713C4.02752 17.5713 2.0434 15.6716 2.0434 9.97397Z"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                </svg>
+                contact@greenshop.com
+            </li>
+            <li>
+                <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M11.9604 2.29175C15.0446 2.63425 17.4813 5.06758 17.8279 8.15175"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M11.9604 5.24425C13.4363 5.53091 14.5896 6.68508 14.8771 8.16091"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.41709 13.5825C0.668773 7.83352 1.48617 5.20096 2.09214 4.35263C2.16999 4.21552 4.08875 1.34323 6.14551 3.02839C11.2507 7.23288 4.78761 6.63843 9.07452 10.9261C13.3623 15.2128 12.767 8.74996 16.9716 13.8541C18.6568 15.9117 15.7844 17.8303 15.6482 17.9073C14.7998 18.5141 12.1663 19.3315 6.41709 13.5825Z"
+                    stroke="#46A358"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                </svg>
+                +88 01911 717 490
+            </li>
             </ul>
         </div>
 
