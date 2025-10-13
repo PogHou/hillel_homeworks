@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+.box {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid black;
+  background-image: url('/unit_06/img/logo.png ');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: red;
+  font-family: sans-serif;
+}
+</style>
+
+<h3>background-origin</h3>
+<div class="box" style="background-origin: border-box;">origin: border-box</div>
+<div class="box" style="background-origin: padding-box;">origin: padding-box</div>
+<div class="box" style="background-origin: content-box;">origin: content-box</div>
+
+<h3>background-clip</h3>
+<div class="box" style="background-clip: border-box;">clip: border-box</div>
+<div class="box" style="background-clip: padding-box;">clip: padding-box</div>
+<div class="box" style="background-clip: content-box;">clip: content-box</div>
+
+</body>
+</html>
