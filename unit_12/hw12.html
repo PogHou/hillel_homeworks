@@ -472,6 +472,7 @@
         }
 
         .p2 .right-filters button {
+            position: relative;
             padding: 8px 16px;
             border: none;
             background: none;
@@ -479,11 +480,21 @@
             transition: all 0.3s ease;
             border-radius: 5px;
         }
-        .p2 .right-filters button:first-child {
+        .p2 .right-filters button.active {
             color: #46a358;
             font-weight: 600;
         }
 
+        .p2 .right-filters button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #46a358;
+            border-radius: 2px;
+        }
         .p2 .right-filters button:hover {
             border: 1px solid #46a358;
             background-color: #f4fff5;
@@ -611,12 +622,12 @@
             box-sizing: border-box;
         }
 
-        .p2 .action-icons .icon svg * {
+        .p2 .action-icons .icon svg {
             fill: #3d3d3d !important;
             transition: fill 0.2s ease;
         }
 
-        .p2 .action-icons .icon:hover svg * {
+        .p2 .action-icons .icon:hover svg {
             fill: #46a358 !important;
         }
 
@@ -624,7 +635,7 @@
             background: #46a358;
         }
 
-        .p2 .action-icons input:checked + .icon svg * {
+        .p2 .action-icons input:checked + .icon svg {
             fill: #ffffff !important;
         }
 
@@ -1151,6 +1162,10 @@
             font-size: 14px;
             color: #727272;
         }
+        svg {
+        fill: transparent;
+        stroke: #46A358 !important;
+        }
         </style>
     </head>
     <body>
@@ -1165,7 +1180,7 @@
                     width="150"
                     height="35"
                 >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-logo" x="0" y="0"></use>
                 </svg>
                 </div>
 
@@ -1204,7 +1219,7 @@
                     width="20"
                     height="20"
                     >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-lupa" x="0" y="0"></use>
                     </svg>
                 </button>
 
@@ -1215,7 +1230,7 @@
                     width="24"
                     height="24"
                     >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-korzina" x="0" y="0"></use>
                     </svg>
                     <span class="badge">6</span>
                 </button>
@@ -1227,7 +1242,7 @@
                     width="18"
                     height="18"
                     >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-logout" x="0" y="0"></use>
                     </svg>
                     Login
                 </a>
@@ -1329,441 +1344,436 @@
 
             <ul class="pictures">
                 <li class="pictures-item">
-                <div class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image1.png"
-                        alt="Barberton Daisy"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image1.png" alt="Barberton Daisy"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Barberton Daisy</span>
+                        <span class="price">$119.00</span>
                     </div>
-                    </div>
-                    <span class="title">Barberton Daisy</span>
-                    <span class="price">$119.00</span>
-                </div>
                 </li>
-                <li class="pictures-item">
-                <div class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image2.png"
-                        alt="Angel Wing Begonia"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
+
+                                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image2.png" alt="Angel Wing Begonia"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-shopping" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-heart" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-search" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Angel Wing Begonia</span>
+                        <span class="price">$169.00</span>
                     </div>
-                    </div>
-                    <span class="title">African Violet</span>
-                    <span class="price"
-                    >$199.00 <span class="old-price">$229.00</span></span
-                    >
-                </div>
-                </li>
-                <li class="pictures-item">
-                <div class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image4.png"
-                        alt="Beach Spider Lily"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                    </div>
-                    </div>
-                    <span class="title">Beach Spider Lily</span>
-                    <span class="price">$129.00</span>
-                </div>
-                </li>
-                <li class="pictures-item">
-                <div class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image5.png"
-                        alt="Blushing Bromeliad"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                    </div>
-                    </div>
-                    <span class="title">Blushing Bromeliad</span>
-                    <span class="price">$139.00</span>
-                </div>
-                </li>
-                <li class="pictures-item">
-                <div class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image6.png"
-                        alt="Aluminum Plant"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                    </div>
-                    </div>
-                    <span class="title">Aluminum Plant</span>
-                    <span class="price">$179.00</span>
-                </div>
                 </li>
 
                 <li class="pictures-item">
-                <a href="https://www.google.com" class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image7.png"
-                        alt="Bird’s Nest Fern"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
+                    <div class="card">
+                        <div class="card-img-container">
+                            <div class="discount-badge">13% OFF</div>
+                            <img class="card-img" src="../unit_09/img/image3.png" alt="Angel Wing Begonia"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-shopping" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-heart" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-search" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">African Violet</span>
+                        <span class="price">$199.00 <span class="old-price">$229.00</span></span>
                     </div>
-                    </div>
-                    <span class="title">Bird’s Nest Fern</span>
-                    <span class="price">$99.00</span>
-                </a>
                 </li>
+
                 <li class="pictures-item">
-                <a href="https://www.google.com" class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image8.png"
-                        alt="Broadleaf Lady Palm"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image4.png" alt="Beach Spider Lily"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Beach Spider Lily</span>
+                        <span class="price">$129.00</span>
                     </div>
-                    </div>
-                    <span class="title">Broadleaf Lady Palm</span>
-                    <span class="price">$59.00</span>
-                </a>
                 </li>
+
                 <li class="pictures-item">
-                <a href="https://www.google.com" class="card">
-                    <div class="card-img-container">
-                    <img
-                        class="card-img"
-                        src="../unit_07/img/image9.png"
-                        alt="Chinese Evergreen"
-                    />
-                    <div class="action-icons">
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-shopping"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-heart"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
-                        <label>
-                        <input type="checkbox" />
-                        <span class="icon">
-                            <svg
-                            class="social-search"
-                            viewBox="0 0 20 20"
-                            width="20"
-                            height="20"
-                            >
-                            <use href="sprite.svg#social-vk" x="0" y="0"></use>
-                            </svg>
-                        </span>
-                        </label>
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image5.png" alt="Blushing Bromeliad"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Blushing Bromeliad</span>
+                        <span class="price">$139.00</span>
                     </div>
+                </li>
+
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image6.png" alt="Aluminum Plant" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Aluminum Plant</span>
+                        <span class="price">$179.00</span>
                     </div>
-                    <span class="title">Chinese Evergreen</span>
-                    <span class="price">$39.00</span>
-                </a>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image7.png" alt="Bird’s Nest Fern"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Bird’s Nest Fern</span>
+                        <span class="price">$99.00</span>
+                    </a>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image8.png" alt="Broadleaf Lady Palm" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Broadleaf Lady Palm</span>
+                        <span class="price">$59.00</span>
+                    </a>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_07/img/image9.png" alt="Chinese Evergreen" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Chinese Evergreen</span>
+                        <span class="price">$39.00</span>
+                    </a>
                 </li>
             </ul>
+
             <div class="pagination">
                 <ul class="pagination-list">
                 <li class="pagination-item">
@@ -1806,7 +1816,7 @@
                     width="18"
                     height="18"
                     >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-find-more" x="0" y="0"></use>
                     </svg>
                 </a>
                 </div>
@@ -1828,7 +1838,7 @@
                     width="18"
                     height="18"
                     >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-find-more" x="0" y="0"></use>
                     </svg>
                 </a>
                 </div>
@@ -1862,7 +1872,7 @@
                         width="16"
                         height="16"
                     >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
                     </svg>
                     </a>
                 </div>
@@ -1886,7 +1896,7 @@
                         width="16"
                         height="16"
                     >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
                     </svg>
                     </a>
                 </div>
@@ -1911,7 +1921,7 @@
                         width="16"
                         height="16"
                     >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
                     </svg>
                     </a>
                 </div>
@@ -1938,7 +1948,7 @@
                         width="16"
                         height="16"
                     >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
                     </svg>
                     </a>
                 </div>
@@ -2021,7 +2031,7 @@
                 width="150"
                 height="35"
                 >
-                <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                <use href="sprite.svg#social-logo" x="0" y="0"></use>
                 </svg>
             </div>
             <ul class="footer-contacts">
@@ -2032,7 +2042,7 @@
                     width="20"
                     height="20"
                 >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-address" x="0" y="0"></use>
                 </svg>
                 70 West Buckingham Ave.<br />
                 Farmingdale, NY 11735
@@ -2044,7 +2054,7 @@
                     width="32"
                     height="32"
                 >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-email" x="0" y="0"></use>
                 </svg>
                 contact@greenshop.com
                 </li>
@@ -2055,7 +2065,7 @@
                     width="20"
                     height="20"
                 >
-                    <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                    <use href="sprite.svg#social-telephone" x="0" y="0"></use>
                 </svg>
                 +88 01911 717 490
                 </li>
@@ -2105,7 +2115,7 @@
                         width="32"
                         height="32"
                         >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-facebook" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
@@ -2115,9 +2125,8 @@
                         class="social-instagram"
                         viewBox="0 0 32 32"
                         width="32"
-                        height="32"
-                        >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        height="32">
+                        <use href="sprite.svg#social-instagram" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
@@ -2129,7 +2138,7 @@
                         width="32"
                         height="32"
                         >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-twitter" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
@@ -2141,7 +2150,7 @@
                         width="32"
                         height="32"
                         >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-linkedin" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
@@ -2153,7 +2162,7 @@
                         width="32"
                         height="32"
                         >
-                        <use href="sprite.svg#social-vk" x="0" y="0"></use>
+                        <use href="sprite.svg#social-youtube" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
