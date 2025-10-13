@@ -1147,7 +1147,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(to right, #edf6ef, #52c368);
+            background: linear-gradient(90deg, #edf6ef, #52c368);
             padding: 25px 35px;
             border-radius: 8px;
             margin-bottom: 30px;
@@ -1156,6 +1156,9 @@
         .hw11 .footer-logo {
             width: 150px;
             height: 40px;
+            background-image: url("./img/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
         .hw11 .footer-contacts {
@@ -1173,6 +1176,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            height: 100%;
         }
 
         .hw11 .footer-bottom {
@@ -1251,8 +1255,7 @@
             color: #727272;
         }
         svg {
-        fill: transparent;
-        stroke: transparent;
+        fill: none;
         }
         </style>
     </head>
@@ -2118,53 +2121,38 @@
                 </p>
             </div>
             </div>
-            <div class="footer-middle">
-            <div class="footer-logo">
-                <svg
-                class="social-logo"
-                viewBox="0 0 150 35"
-                width="150"
-                height="35"
-                >
-                <use href="sprite.svg#social-logo" x="0" y="0"></use>
-                </svg>
-            </div>
-            <ul class="footer-contacts">
-                <li>
-                <svg
-                    class="social-address"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    height="20"
-                >
-                    <use href="sprite.svg#social-address" x="0" y="0"></use>
-                </svg>
-                70 West Buckingham Ave.<br />
-                Farmingdale, NY 11735
-                </li>
-                <li>
-                <svg
-                    class="social-email"
-                    viewBox="0 0 32 32"
-                    width="32"
-                    height="32"
-                >
-                    <use href="sprite.svg#social-email" x="0" y="0"></use>
-                </svg>
-                contact@greenshop.com
-                </li>
-                <li>
-                <svg
-                    class="social-telephone"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    height="20"
-                >
-                    <use href="sprite.svg#social-telephone" x="0" y="0"></use>
-                </svg>
-                +88 01911 717 490
-                </li>
-            </ul>
+            <div class="hw11">
+                <div class="footer-middle">
+                    <div class="footer-logo">
+                        <svg class="social-logo" viewBox="0 0 150 35" width="150" height="35">
+                            <use href="sprite.svg#social-logo"></use>
+                        </svg>
+                    </div>
+
+                    <ul class="footer-contacts">
+                        <li>
+                            <svg class="social-address" viewBox="0 0 32 32" width="32" height="32">
+                                <use href="sprite.svg#social-address"></use>
+                            </svg>
+                            <div class="contact-text">
+                                70 West Buckingham Ave.<br>
+                                Farmingdale, NY 11735
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="social-email" viewBox="0 0 32 32" width="32" height="32">
+                                <use href="sprite.svg#social-email"></use>
+                            </svg>
+                            <div class="contact-text">contact@greenshop.com</div>
+                        </li>
+                        <li>
+                            <svg class="social-telephone" viewBox="0 0 20 20" width="20" height="20">
+                                <use href="sprite.svg#social-telephone"></use>
+                            </svg>
+                            <div class="contact-text">+88 01911 717 490</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="footer-bottom">
