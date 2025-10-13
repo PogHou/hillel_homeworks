@@ -328,8 +328,10 @@
         }
 
         .p1 .hero-text .shop-button {
-            display: inline-block;
-            padding: 12px 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
             background: #46a358;
             color: #fff;
             border-radius: 6px;
@@ -337,6 +339,7 @@
             font-weight: 700;
             width: 140px;
             height: 40px;
+            transition: all 0.3s ease;
         }
 
         .p1 .hero-media img {
@@ -738,16 +741,21 @@
         }
 
         .p2 .pagination a {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            background: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            color: #3d3d3d;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        color: #3d3d3d;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
         }
+
         .p2 .pagination a.active {
             background: #46a358;
             color: #fff;
@@ -757,6 +765,27 @@
             border-color: #46a358;
             background-color: #f4fff5;
             color: #46a358;
+        }
+
+        .p2 .pagination a.next::after {
+            content: "";
+            display: block;
+            width: 10.5px;
+            height: 10.5px;
+            border-right: 1.5px solid #3d3d3d;
+            border-bottom: 1.5px solid #3d3d3d;
+            transform: rotate(-45deg);
+        }
+
+        .p2 .pagination a:hover,
+        .p2 .pagination a.active {
+            border-color: #46a358;
+            background-color: #f4fff5;
+            color: #46a358;
+        }
+
+        .p2 .pagination a.next:hover::after {
+            border-color: #46a358;
         }
 
         .p3 {
@@ -1062,6 +1091,7 @@
         }
 
         .hw11 .item-title {
+            font-family: "Cera Pro Bold";
             font-weight: 700;
             font-size: 18px;
             color: #3d3d3d;
@@ -1167,6 +1197,7 @@
         }
 
         .hw11 .footer-column h4 {
+            font-family: "Cera Pro Bold";
             font-weight: 700;
             font-size: 16px;
             color: #3d3d3d;
@@ -1849,22 +1880,13 @@
 
             <div class="pagination">
                 <ul class="pagination-list">
-                <li class="pagination-item">
-                    <a href="hw07.html" class="pagination-link active">1</a>
-                </li>
-                <li class="pagination-item">
-                    <a href="https://www.google.com" class="pagination-link">2</a>
-                </li>
-                <li class="pagination-item">
-                    <a href="https://www.google.com" class="pagination-link">3</a>
-                </li>
-                <li class="pagination-item">
-                    <a href="https://www.google.com" class="pagination-link">4</a>
-                </li>
-                <li class="pagination-item">
-                    <a href="https://www.google.com" class="pagination-link">›</a>
-                </li>
+                    <li class="pagination-item"><a href="#" class="pagination-link active">1</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">4</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link next"></a></li>
                 </ul>
+            </div>
             </div>
             </div>
         </div>
