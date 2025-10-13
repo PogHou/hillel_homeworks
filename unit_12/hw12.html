@@ -360,57 +360,111 @@
         }
 
         .p2 .aside {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 370px;
-            padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 370px;
+        padding: 30px 20px;
+        gap: 40px;
         }
 
-        .p2 .sidebar {
-            display: flex;
-            flex-direction: column;
+        .p2 .sidebar,
+        .p2 .price-range,
+        .p2 .size-filter {
+        display: flex;
+        flex-direction: column;
         }
 
         .p2 .categories {
-            font-family: "Cera Pro Bold", sans-serif;
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-left: 20px;
+        font-family: "Cera Pro Bold", sans-serif;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        color: #3d3d3d;
         }
 
-        .p2 .sidebar ul {
-            list-style: none;
-            padding-left: 30px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .p2 .sidebar ul,
+        .p2 .size-filter ul {
+        list-style: none;
+        padding-left: 30px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         }
 
-        .p2 .sidebar ul li {
-            list-style: none;
+        .p2 .sidebar ul li,
+        .p2 .size-filter ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         }
 
-        .p2 .sidebar ul li a {
-            display: block;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #3d3d3d;
-            text-decoration: none;
+        .p2 .sidebar ul li a,
+        .p2 .size-filter ul li a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #3d3d3d;
+        text-decoration: none;
         }
 
-        .p2 .sidebar ul li a:hover {
-            background-color: #e6f5eb;
-            color: #46a358;
-            outline: 1px solid #46a358;
+        .p2 .sidebar ul li a:hover,
+        .p2 .size-filter ul li a:hover {
+        background-color: #e6f5eb;
+        color: #46a358;
+        outline: 1px solid #46a358;
         }
 
         .p2 .sidebar ul li.active a {
-            color: #46a358;
-            font-weight: 700;
+        color: #46a358;
+        font-weight: 700;
+        }
+
+        .p2 .sidebar ul li.active .count {
+        color: #46a358;
+        font-weight: 600;
+        }
+
+        .p2 .count {
+        color: #777;
+        font-size: 14px;
+        }
+
+        .p2 .green {
+        color: #46a358;
+        font-weight: 600;
+        }
+
+        .p2 .price-range .range-values {
+        padding-left: 30px;
+        margin-bottom: 10px;
+        }
+
+        .p2 .slider {
+        width: 80%;
+        align-self: center;
+        margin-bottom: 10px;
+        accent-color: #46a358;
+        }
+
+        .p2 .filter-btn {
+        background-color: #46a358;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        width: 80px;
+        padding: 8px 0;
+        margin-left: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        font-weight: 600;
+        }
+
+        .p2 .filter-btn:hover {
+        background-color: #3ea04f;
         }
 
         .p2 .ads {
@@ -468,17 +522,20 @@
             font-family: "Cera Pro Bold", sans-serif;
             font-size: 16px;
             display: flex;
-            gap: 20px;
+            align-items: center; 
+            gap: 40px;
         }
 
         .p2 .right-filters button {
             position: relative;
-            padding: 8px 16px;
+            padding: 8px 0;
             border: none;
             background: none;
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 5px;
+            color: #3d3d3d;   
+            font-weight: 400;
         }
         .p2 .right-filters button.active {
             color: #46a358;
@@ -488,17 +545,17 @@
         .p2 .right-filters button.active::after {
             content: "";
             position: absolute;
-            bottom: -3px;
+            bottom: -5px;
             left: 0;
             height: 3px;
             width: 100%;
             background: #46a358;
             border-radius: 2px;
         }
-        .p2 .right-filters button:hover {
-            border: 1px solid #46a358;
-            background-color: #f4fff5;
+            .p2 .right-filters .filter-btn:hover {
             color: #46a358;
+            background-color: transparent;
+            border: none;
         }
 
         .p2 .left-filters select {
@@ -535,7 +592,7 @@
             flex-direction: column;
             align-items: flex-start;
             width: 258px;
-            gap: 10px;
+            gap: 50px;
             flex-shrink: 0;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1151,7 +1208,7 @@
 
         .hw11 .footer-column img {
             margin-top: 10px;
-            width: 120px;
+            width: 200px;
             height: auto;
         }
 
@@ -1164,7 +1221,7 @@
         }
         svg {
         fill: transparent;
-        stroke: #46A358 !important;
+        stroke: transparent;
         }
         </style>
     </head>
@@ -1273,54 +1330,70 @@
         <div class="p2">
         <div class="container">
             <div class="aside">
-            <div class="sidebar">
-                <span class="categories">Categories</span>
-                <ul class="sidebar-list">
-                <li class="sidebar-item active">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >House Plants</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Potter Plants</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link">Seeds</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Small Plants</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Succulents</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Terrariums</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Gardening</a
-                    >
-                </li>
-                <li class="sidebar-item">
-                    <a href="https://www.google.com" class="sidebar-link"
-                    >Accessories</a
-                    >
-                </li>
-                </ul>
-            </div>
-            <a href="https://www.google.com" class="ads">
-                <span class="ads-text">Super Sale</span>
-                <p class="ads-subtitle">UP TO 75% OFF</p>
-                <img class="ads-image" src="../unit_07/img/image0.png" alt="ads" />
-            </a>
+                <div class="sidebar">
+                    <span class="categories">Categories</span>
+                    <ul class="sidebar-list">
+                        <li class="sidebar-item active">
+                            <a href="#" class="sidebar-link">House Plants</a>
+                            <span class="count">(33)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Potter Plants</a>
+                            <span class="count">(12)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Seeds</a>
+                            <span class="count">(65)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Small Plants</a>
+                            <span class="count">(39)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Big Plants</a>
+                            <span class="count">(23)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Succulents</a>
+                            <span class="count">(17)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Terrariums</a>
+                            <span class="count">(19)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Gardening</a>
+                            <span class="count">(13)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Accessories</a>
+                            <span class="count">(18)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="price-range">
+                    <span class="categories">Price Range</span>
+                    <div class="range-values">
+                        <p>Price: <span class="green">$39 – $1230</span></p>
+                    </div>
+                    <input type="range" min="39" max="1230" value="500" class="slider">
+                    <button class="filter-btn">Filter</button>
+                </div>
+
+                <div class="size-filter">
+                    <span class="categories">Size</span>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Small</a> <span class="count">(119)</span></li>
+                        <li><a href="#">Medium</a> <span class="count">(86)</span></li>
+                        <li><a href="#">Large</a> <span class="count">(78)</span></li>
+                    </ul>
+                </div>
+                <a href="https://www.google.com" class="ads">
+                    <span class="ads-text">Super Sale</span>
+                    <p class="ads-subtitle">UP TO 75% OFF</p>
+                    <img class="ads-image" src="../unit_07/img/image0.png" alt="ads" />
+                </a>
             </div>
 
             <div class="main">
@@ -2156,13 +2229,8 @@
                     </li>
                     <li>
                     <a href="https://www.youtube.com">
-                        <svg
-                        class="social-youtube"
-                        viewBox="0 0 32 32"
-                        width="32"
-                        height="32"
-                        >
-                        <use href="sprite.svg#social-youtube" x="0" y="0"></use>
+                        <svg class="social-youtube" viewBox="0 0 32 32" width="32" height="32">
+                            <use href="sprite.svg#social-youtube" x="0" y="0"></use>
                         </svg>
                     </a>
                     </li>
