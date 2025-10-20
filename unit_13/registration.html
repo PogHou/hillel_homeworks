@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RegSkeleton</title>
+        <link rel="stylesheet" href="./styles/reset.css" />
+        <link rel="stylesheet" href="./styles/registration.css" />
+    </head>
+    <body>
+        <span class="loader"></span>
+        <div class="loader-overlay"><div class="loader"></div></div>
+        <div class="container">
+        <header>
+            <a href="/unit_03/GREENSHOP/Login.html">Login</a> |
+            <a href="Registration.html" class="active">Register</a>
+        </header>
+        <nav>Enter your email and password to register.</nav>
+        <form>
+            <div class="skeleton-wrapper">
+            <input type="text" placeholder="Username" />
+            </div>
+            <div class="skeleton-wrapper">
+            <input type="text" placeholder="Enter your email address" />
+            </div>
+            <div class="password-field skeleton-wrapper">
+            <input type="password" placeholder="Password" id="password1" />
+            <input type="checkbox" id="toggle1" class="password-toggle" />
+            <label for="toggle1" class="show-btn">
+                <img src="img/eyehide.svg" alt="Hide password" class="hide-icon" />
+                <img src="img/eyeshow.svg" alt="Show password" class="show-icon" />
+            </label>
+            </div>
+            <div class="password-field skeleton-wrapper">
+            <input
+                type="password"
+                placeholder="Confirm Password"
+                id="password2"
+            />
+            <input type="checkbox" id="toggle2" class="password-toggle" />
+            <label for="toggle2" class="show-btn">
+                <img src="img/eyehide.svg" alt="Hide password" class="hide-icon" />
+                <img src="img/eyeshow.svg" alt="Show password" class="show-icon" />
+            </label>
+            </div>
+            <a href="https://www.google.com" class="register-btn">Register</a>
+        </form>
+        <div class="divider">Or register with</div>
+        <div class="social-wrapper skeleton-wrapper">
+            <a href="https://www.google.com" class="social-btn" target="_blank">
+            <img src="img/google.svg" alt="Google" />
+            <span>Continue with Google</span>
+            </a>
+        </div>
+        <div class="social-wrapper skeleton-wrapper">
+            <a href="https://www.facebook.com" class="social-btn" target="_blank">
+            <img src="img/faceboo.svg" alt="Facebook" />
+            <span>Continue with Facebook</span>
+            </a>
+        </div>
+        </div>
+    </body>
+<script>
+ window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelector('.loader-overlay').style.display = 'none';
+        document.body.classList.add('loaded');
+    }, 7000);
+});
+</script>
+</html>

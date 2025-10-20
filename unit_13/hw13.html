@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>lyam</title>
+        <link rel="stylesheet" href="../reset.css" />
+        <style>
+        @font-face {
+            font-family: "Cera Pro Regular";
+            src: url("../fonts/Cera Pro Regular.otf") format("opentype");
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "Cera Pro Bold";
+            src: url("../fonts/Cera Pro Bold.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "Hanging Letters";
+            src: url("../fonts/Hanged-Letters.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: "Cera Pro Black";
+            src: url("../fonts/Cera Pro Black.otf") format("opentype");
+            font-weight: 900;
+        }
+        @font-face {
+            font-family: "Cera Pro Medium";
+            src: url("../fonts/Cera Pro Medium.otf") format("opentype");
+            font-weight: 500;
+        }
+body.lock {overflow: hidden;}
+.intro-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 9999;
+    pointer-events: auto;
+    will-change: transform;
+}
+.intro-video.hidden {display: none;}
+.play-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.play-btn {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play-btn::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 25px solid black;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-left: 6px;
+}
+        body {
+            font-family: "Cera Pro Regular", sans-serif;
+            color: #3d3d3d;
+            background: #fff;
+            box-sizing: border-box;
+        }
+
+        .p1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #3d3d3d;
+            margin: 0;
+        }
+
+        .p1 .container {
+            width: 100%;
+            background: #fff;
+            padding: 30px 0 52px 0;
+            box-sizing: border-box;
+        }
+
+        .p1 .header {
+            padding: 8px 0 25px;
+        }
+
+        .p1 .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .p1 .logo svg {
+            width: 160px;
+            display: block;
+        }
+
+        .p1 .nav {
+            flex: 1 1 auto;
+        }
+
+        .p1 .nav > ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .p1 .nav li {
+            position: relative;
+        }
+
+        .p1 .nav > ul > li > a::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: #46a358;
+            border-radius: 2px;
+            transition: width 0.25s;
+        }
+
+        .p1 .nav > ul > li:hover > a::after {
+            width: 100%;
+        }
+
+        .p1 .nav > ul > li > a {
+            display: inline-block;
+            padding: 6px 12px;
+            text-decoration: none;
+            color: #666;
+            text-align: center;
+            transition: color 0.2s;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .p1 .nav > ul > li:hover > a {
+            color: #46a358;
+        }
+
+        .p1 .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            width: auto;
+            background: #edf6ee;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            z-index: 50;
+            list-style: none;
+            padding-top: 20px;
+            background-clip: content-box;
+        }
+
+        .p1 .has-dropdown:hover > .dropdown-content {
+            display: block;
+        }
+
+        .p1 .dropdown-content li {
+            display: block;
+        }
+
+        .p1 .dropdown-content li a {
+            display: block;
+            padding: 10px 20px;
+            color: #3d3d3d;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.15s, color 0.15s;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .p1 .dropdown-content li a:hover {
+            background: #1a712a;
+            color: #fff;
+        }
+
+        .p1 .has-submenu {
+            position: relative;
+        }
+
+        .p1 .has-submenu > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .p1 .has-submenu > .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: calc(100% + 0px);
+            min-width: 180px;
+            width: auto;
+            background: #edf6ee;
+            border-radius: 6px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            z-index: 60;
+            list-style: none;
+            padding-left: 2px;
+            background-clip: content-box;
+            top: -103px;
+        }
+
+        .p1 .has-submenu:hover > .submenu {
+            display: block;
+        }
+
+        .p1 .submenu li {
+            display: block;
+        }
+
+        .p1 .submenu li a {
+            display: block;
+            padding: 10px 20px;
+            color: #3d3d3d;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.15s, color 0.15s;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .p1 .submenu li a:hover {
+            background: #1a712a;
+            color: #fff;
+        }
+
+        .p1 .arrow {
+            margin-left: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.25s;
+        }
+
+        .p1 .has-submenu:hover > a .arrow {
+            transform: rotate(180deg);
+        }
+
+        .p1 .login {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .p1 .login .icon-btn {
+            position: relative;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .p1 .login .icon-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .p1 .login .icon-btn.cart .badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #46a358;
+            color: white;
+            font-size: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .p1 .login .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            background: #46a358;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .p1 .login .btn svg {
+            margin-right: 6px;
+            height: 16px;
+        }
+
+        .p1 .banner {
+            margin-top: 12px;
+            padding: 26px 0;
+            background: #f5f5f5;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .p1 .banner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .p1 .hero-text {
+            max-width: calc(1200px - 507px - 20px);
+            text-align: left;
+        }
+
+        .p1 .hero-text .eyebrow {
+            text-transform: uppercase;
+            color: #727272;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .p1 .hero-text h1 {
+            margin: 0 0 20px 0;
+            font-size: 70px;
+            line-height: 1.1;
+            font-weight: 800;
+            color: #3d3d3d;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .p1 .hero-text h1 .accent {
+            color: #46a358;
+        }
+
+        .p1 .hero-text p.lead {
+            color: #8f8f8f;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .p1 .hero-text .shop-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            background: #46a358;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            width: 140px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .p1 .hero-media img {
+            width: 507px;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .p2 {
+            font-family: "Cera Pro Regular", sans-serif;
+            color: #3d3d3d;
+        }
+
+        .p2 .container {
+            display: flex;
+            flex-direction: row;
+            width: 1440px;
+            margin: 0 auto;
+            min-height: 100%;
+        }
+
+        .p2 .aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 370px;
+        padding: 30px 20px;
+        gap: 40px;
+        }
+
+        .p2 .sidebar,
+        .p2 .price-range,
+        .p2 .size-filter {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .p2 .categories {
+        font-family: "Cera Pro Bold", sans-serif;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        color: #3d3d3d;
+        }
+
+        .p2 .sidebar ul,
+        .p2 .size-filter ul {
+        list-style: none;
+        padding-left: 30px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        }
+
+        .p2 .sidebar ul li,
+        .p2 .size-filter ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .p2 .sidebar ul li a,
+        .p2 .size-filter ul li a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #3d3d3d;
+        text-decoration: none;
+        }
+
+        .p2 .sidebar ul li a:hover,
+        .p2 .size-filter ul li a:hover {
+        background-color: #e6f5eb;
+        color: #46a358;
+        outline: 1px solid #46a358;
+        }
+
+        .p2 .sidebar ul li.active a {
+        color: #46a358;
+        font-weight: 700;
+        }
+
+        .p2 .sidebar ul li.active .count {
+        color: #46a358;
+        font-weight: 600;
+        }
+
+        .p2 .count {
+        color: #777;
+        font-size: 14px;
+        }
+
+        .p2 .green {
+        color: #46a358;
+        font-weight: 600;
+        }
+
+        .p2 .price-range .range-values {
+        padding-left: 30px;
+        margin-bottom: 10px;
+        }
+
+        .p2 .slider {
+        width: 80%;
+        align-self: center;
+        margin-bottom: 10px;
+        accent-color: #46a358;
+        }
+
+        .p2 .filter-btn {
+        background-color: #46a358;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        width: 80px;
+        padding: 8px 0;
+        margin-left: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        font-weight: 600;
+        }
+
+        .p2 .filter-btn:hover {
+        background-color: #3ea04f;
+        }
+
+        .p2 .ads {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            background-image: url("img/Group1.png");
+            background-size: 370px 370px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 82px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .p2 .ads:hover {
+            border: 2px solid #46a358;
+            background-color: rgba(70, 163, 88, 0.1);
+            transform: scale(1.02);
+        }
+
+        .p2 .ads .ads-text {
+            font-family: "Hanging Letters", sans-serif;
+            font-size: 65px;
+            color: #46a358;
+        }
+
+        .p2 .ads .ads-subtitle {
+            font-family: "Cera Pro Bold", sans-serif;
+            font-size: 23px;
+            margin: 0;
+        }
+
+        .p2 .main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px 60px;
+        }
+
+        .p2 .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .p2 .right-filters {
+            font-family: "Cera Pro Bold", sans-serif;
+            font-size: 16px;
+            display: flex;
+            align-items: center; 
+            gap: 40px;
+        }
+
+        .p2 .right-filters button {
+            position: relative;
+            padding: 8px 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            color: #3d3d3d;   
+            font-weight: 400;
+        }
+        .p2 .right-filters button.active {
+            color: #46a358;
+            font-weight: 600;
+        }
+
+        .p2 .right-filters button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #46a358;
+            border-radius: 2px;
+        }
+            .p2 .right-filters .filter-btn:hover {
+            color: #46a358;
+            background-color: transparent;
+            border: none;
+        }
+
+        .p2 .left-filters select {
+            font-family: "Cera Pro Regular", sans-serif;
+            font-size: 15px;
+            color: #666;
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .p2 .left-filters select:hover {
+            border-color: #46a358;
+        }
+
+        .p2 .pictures {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 40px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .p2 .pictures li {
+            list-style: none;
+        }
+
+        .p2 .card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 258px;
+            gap: 50px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .p2 .card:hover {
+            border: 2px solid #46a358;
+            padding: 8px;
+            background-color: #f4fff5;
+            transform: scale(1.02);
+        }
+
+        .p2 .card-img-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .p2 .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .p2 .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .p2 .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #46a358;
+            color: #fff;
+            font-family: "Cera Pro Medium", sans-serif;
+            font-size: 16px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .p2 .action-icons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .p2 .card:hover .action-icons {
+            opacity: 1;
+        }
+
+        .p2 .action-icons input {
+            display: none;
+        }
+
+        .p2 .action-icons label {
+            cursor: pointer;
+        }
+
+        .p2 .action-icons .icon {
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .p2 .action-icons .icon svg {
+            fill: #3d3d3d !important;
+            transition: fill 0.2s ease;
+        }
+
+        .p2 .action-icons .icon:hover svg {
+            fill: #46a358 !important;
+        }
+
+        .p2 .action-icons input:checked + .icon {
+            background: #46a358;
+        }
+
+        .p2 .action-icons input:checked + .icon svg {
+            fill: #ffffff !important;
+        }
+
+        .p2 .title {
+            font-size: 16px;
+        }
+
+        .p2 .price {
+            font-size: 18px;
+            color: #46a358;
+            font-weight: 600;
+        }
+
+        .p2 .old-price {
+            font-size: 18px;
+            color: #a5a5a5;
+            text-decoration: line-through;
+            text-decoration-color: #cbcbcb;
+            margin-left: 6px;
+        }
+
+        .p2 .container {
+            display: flex;
+            flex-direction: row;
+            width: 1440px;
+            margin: 0 auto;
+            min-height: 100%;
+        }
+        .p2 .pagination {
+            margin-top: 50px;
+            margin-left: auto;
+        }
+        .p2 .pagination ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .p2 .pagination li {
+            list-style: none;
+        }
+
+        .p2 .pagination a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        color: #3d3d3d;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        }
+
+        .p2 .pagination a.active {
+            background: #46a358;
+            color: #fff;
+            border-color: #46a358;
+        }
+        .p2 .pagination a:hover {
+            border-color: #46a358;
+            background-color: #f4fff5;
+            color: #46a358;
+        }
+
+        .p2 .pagination a.next::after {
+            content: "";
+            display: block;
+            width: 10.5px;
+            height: 10.5px;
+            border-right: 1.5px solid #3d3d3d;
+            border-bottom: 1.5px solid #3d3d3d;
+            transform: rotate(-45deg);
+        }
+
+        .p2 .pagination a:hover,
+        .p2 .pagination a.active {
+            border-color: #46a358;
+            background-color: #f4fff5;
+            color: #46a358;
+        }
+
+        .p2 .pagination a.next:hover::after {
+            border-color: #46a358;
+        }
+
+        .p3 {
+            font-family: "Cera Pro Regular", sans-serif;
+            color: #3d3d3d;
+            margin-top: 20px;
+        }
+
+        .p3 .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .p3 .up-block {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .p3 .right,
+        .p3 .left {
+            width: 586px;
+            height: 302px;
+            position: relative;
+            background-color: #f8f8f8;
+            border-radius: 6px;
+            overflow: visible;
+            padding: 20px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .p3 .right img,
+        .p3 .left img {
+            position: absolute;
+            top: 20px;
+            width: 287px;
+            height: 292px;
+        }
+
+        .p3 .right img {
+            left: 0;
+        }
+
+        .p3 .left img {
+            right: 0;
+        }
+
+        .p3 .description-one {
+            max-width: 292px;
+        }
+
+        .p3 .right-text {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .p3 .left-text {
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .p3 .description-one h3 {
+            font-family: "Cera Pro Black", sans-serif;
+            font-size: 18px;
+            color: #3d3d3d;
+            margin-bottom: 15px;
+        }
+
+        .p3 .description-one p {
+            font-family: "Cera Pro Regular", sans-serif;
+            font-size: 14px;
+            color: #727272;
+            margin-bottom: 25px;
+        }
+
+        .p3 .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            background-color: #46a358;
+            color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .p3 .btn:hover {
+            background-color: #388e4a;
+            transform: scale(1.05);
+        }
+
+        .p3 .btn img {
+            width: 18px;
+            height: 18px;
+            margin-left: 8px;
+        }
+
+        .p3 .down-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .p3 .down-block h2 {
+            font-family: "Cera Pro Bold", sans-serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .p3 .down-block p {
+            font-family: "Cera Pro Regular", sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .p3 .blog-posts {
+            display: flex;
+            gap: 20px;
+        }
+
+        .p3 .post {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            width: 280px;
+        }
+
+        .p3 .post img {
+            width: 100%;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .p3 .post-content {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .p3 .post-meta {
+            font-family: "Cera Pro Medium", sans-serif;
+            font-size: 14px;
+            color: #46a358;
+            margin-bottom: 10px;
+        }
+
+        .p3 .post-title {
+            font-family: "Cera Pro Bold", sans-serif;
+            color: #3d3d3d;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .p3 .post-desc {
+            font-family: "Cera Pro Regular", sans-serif;
+            font-size: 14px;
+            color: #727272;
+            margin-bottom: 20px;
+        }
+
+        .p3 .read-more {
+            font-family: "Cera Pro Medium", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3d3d3d;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            transition: all 0.25s ease;
+        }
+
+        .p3 .read-more:hover {
+            transform: translateX(3px);
+            color: #46a358;
+        }
+
+        .p3 .read-more svg {
+            width: 16px;
+            height: 16px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .p3 .read-more svg path {
+            fill: currentColor;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0 20px;
+        }
+
+        .pagination ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pagination a {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            color: #3d3d3d;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background: #46a358;
+            color: #fff;
+            border-color: #46a358;
+        }
+
+        .pagination a:hover {
+            border-color: #46a358;
+            background-color: #f4fff5;
+            color: #46a358;
+        }
+
+        .hw11 .footer {
+            width: 1200px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #ffffff, #edf6ee);
+            padding: 40px 60px;
+            box-sizing: border-box;
+            margin: 40px auto 80px;
+        }
+
+        .hw11 .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .hw11 .footer-item {
+            width: 20%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hw11 .footer-item .icon {
+            position: relative;
+            width: 100px;
+            height: 105px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hw11 .icon {
+            position: relative;
+            width: 100px;
+            height: 105px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hw11 .icon .bg-circle {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            top: calc(50% + 12px);
+            left: calc(50% - 10px);
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .hw11 .icon img:not(.bg-circle) {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hw11 .item-title {
+            font-family: "Cera Pro Bold";
+            font-weight: 700;
+            font-size: 18px;
+            color: #3d3d3d;
+            margin-bottom: 4px;
+        }
+
+        .hw11 .item-text {
+            font-size: 14px;
+            color: #727272;
+            line-height: 1.5;
+        }
+
+        .hw11 .newsletter {
+            margin-top: 25px;
+            width: 354px;
+            height: 202px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 10px;
+            color: #727272;
+        }
+
+        .hw11 .newsletter-form {
+            display: flex;
+            margin-top: 5px;
+        }
+
+        .hw11 .newsletter-form input {
+            width: 270px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            font-family: "Cera Pro Regular", sans-serif;
+            color: #acacac;
+            padding-left: 12px;
+            font-size: 14px;
+        }
+
+        .hw11 .btn-join {
+            width: 84px;
+            height: 40px;
+            background-color: #46a358;
+            border: none;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .hw11 .footer-middle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #edf6ef, #52c368);
+            padding: 25px 35px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .hw11 .footer-logo {
+            width: 150px;
+            height: 40px;
+            background-image: url("./img/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .hw11 .footer-contacts {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            list-style: none;
+            font-size: 14px;
+            color: #727272;
+            line-height: 1.5;
+        }
+
+        .hw11 .footer-contacts li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .hw11 .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hw11 .footer-list {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .hw11 .footer-column {
+            width: 25%;
+        }
+
+        .hw11 .footer-column h4 {
+            font-family: "Cera Pro Bold";
+            font-weight: 700;
+            font-size: 16px;
+            color: #3d3d3d;
+            margin-bottom: 10px;
+        }
+
+        .hw11 .footer-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hw11 .footer-column li {
+            margin: 6px 0;
+            font-size: 14px;
+            color: #727272;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .hw11 .social-icons {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .hw11 .social-icons li {
+            width: 28px;
+            height: 28px;
+            margin-bottom: 20px;
+        }
+
+        .hw11 .social-icons li a img {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+
+        .hw11 .footer-column img {
+            margin-top: 10px;
+            width: 200px;
+            height: auto;
+        }
+
+        .hw11 .footer-copy {
+            text-align: center;
+            margin-top: 0;
+            padding-top: 0;
+            font-size: 14px;
+            color: #727272;
+        }
+        svg {
+        fill: none;
+        }
+        </style>
+    </head>
+    <body>
+        <body class="lock">
+
+            <video class="intro-video" autoplay muted playsinline preload="auto">
+                <source src="./video.mp4" type="video/mp4" />
+            </video>
+
+            <audio id="intro-audio" preload="auto">
+                <source src="./audio.mp3" type="audio/mp3" />
+            </audio>
+
+            <div class="play-overlay" id="play-overlay">
+                Кликни и подпевай
+                <div class="play-btn"></div>
+            </div>
+        <div class="p1">
+        <div class="container">
+            <header class="header">
+            <div class="header-inner">
+                <div class="logo">
+                <svg
+                    class="social-logo"
+                    viewBox="0 0 150 35"
+                    width="150"
+                    height="35"
+                >
+                    <use href="sprite.svg#social-logo" x="0" y="0"></use>
+                </svg>
+                </div>
+
+                <nav class="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li class="has-dropdown">
+                    <a href="#">Plant Care</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Drainage</a></li>
+                        <li><a href="#">Fungicides</a></li>
+                        <li><a href="#">Fertilizer</a></li>
+                        <li class="has-submenu">
+                        <a href="#">Priming <span class="arrow">&gt;</span></a>
+                        <ul class="submenu">
+                            <li><a href="#">Universal</a></li>
+                            <li><a href="#">For Ficus</a></li>
+                            <li><a href="#">For Cacti</a></li>
+                            <li><a href="#">For Citrus</a></li>
+                            <li><a href="#">For those in bloom</a></li>
+                            <li><a href="#">For Orchids</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+                </nav>
+
+                <div class="login">
+                <button class="icon-btn">
+                    <svg
+                    class="social-lupa"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    height="20"
+                    >
+                    <use href="sprite.svg#social-lupa" x="0" y="0"></use>
+                    </svg>
+                </button>
+
+                <button class="icon-btn cart">
+                    <svg
+                    class="social-korzina"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    >
+                    <use href="sprite.svg#social-korzina" x="0" y="0"></use>
+                    </svg>
+                    <span class="badge">6</span>
+                </button>
+
+                <a href="../unit_03/GREENSHOP/Login.html" class="btn">
+                    <svg
+                    class="social-logout"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    height="18"
+                    >
+                    <use href="sprite.svg#social-logout" x="0" y="0"></use>
+                    </svg>
+                    Login
+                </a>
+                </div>
+            </div>
+            </header>
+
+            <section class="banner">
+            <div class="banner-inner">
+                <div class="hero-text">
+                <span class="eyebrow">Welcome to GreenShop</span>
+                <h1>LET'S MAKE A BETTER <span class="accent">PLANET</span></h1>
+                <p class="lead">
+                    We are an online plant shop offering a wide range of cheap and
+                    trendy plants. Use our plants to create a unique Urban Jungle.
+                    Order your favorite plants!
+                </p>
+                <a class="shop-button" href="../unit_04/funnyHW.html">SHOP NOW</a>
+                </div>
+                <div class="hero-media">
+                <img src="../unit_12/img/flower.png" alt="Flower" />
+                </div>
+            </div>
+            </section>
+        </div>
+        </div>
+
+        <div class="p2">
+        <div class="container">
+            <div class="aside">
+                <div class="sidebar">
+                    <span class="categories">Categories</span>
+                    <ul class="sidebar-list">
+                        <li class="sidebar-item active">
+                            <a href="#" class="sidebar-link">House Plants</a>
+                            <span class="count">(33)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Potter Plants</a>
+                            <span class="count">(12)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Seeds</a>
+                            <span class="count">(65)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Small Plants</a>
+                            <span class="count">(39)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Big Plants</a>
+                            <span class="count">(23)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Succulents</a>
+                            <span class="count">(17)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Terrariums</a>
+                            <span class="count">(19)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Gardening</a>
+                            <span class="count">(13)</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Accessories</a>
+                            <span class="count">(18)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="price-range">
+                    <span class="categories">Price Range</span>
+                    <div class="range-values">
+                        <p>Price: <span class="green">$39 – $1230</span></p>
+                    </div>
+                    <input type="range" min="39" max="1230" value="500" class="slider">
+                    <button class="filter-btn">Filter</button>
+                </div>
+
+                <div class="size-filter">
+                    <span class="categories">Size</span>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Small</a> <span class="count">(119)</span></li>
+                        <li><a href="#">Medium</a> <span class="count">(86)</span></li>
+                        <li><a href="#">Large</a> <span class="count">(78)</span></li>
+                    </ul>
+                </div>
+                <a href="https://www.google.com" class="ads">
+                    <span class="ads-text">Super Sale</span>
+                    <p class="ads-subtitle">UP TO 75% OFF</p>
+                    <img class="ads-image" src="../unit_12/img/image0.png" alt="ads" />
+                </a>
+            </div>
+
+            <div class="main">
+            <div class="filters">
+                <div class="right-filters">
+                <button class="filter-btn active">All Plants</button>
+                <button class="filter-btn">New Arrivals</button>
+                <button class="filter-btn">Sale</button>
+                </div>
+                <div class="left-filters">
+                <span class="sort-label">Sort by:</span>
+                <select class="sort-select">
+                    <option selected>Default sorting</option>
+                    <option>Name: from A to Z</option>
+                    <option>Name: from Z to A</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+                </div>
+            </div>
+
+            <ul class="pictures">
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image1.png" alt="Barberton Daisy"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Barberton Daisy</span>
+                        <span class="price">$119.00</span>
+                    </div>
+                </li>
+
+                                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image2.png" alt="Angel Wing Begonia"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-shopping" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-heart" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-search" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Angel Wing Begonia</span>
+                        <span class="price">$169.00</span>
+                    </div>
+                </li>
+
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <div class="discount-badge">13% OFF</div>
+                            <img class="card-img" src="../unit_12/img/image3.png" alt="Angel Wing Begonia"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-shopping" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-heart" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg class="social-search" viewBox="0 0 20 20" width="20" height="20">
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">African Violet</span>
+                        <span class="price">$199.00 <span class="old-price">$229.00</span></span>
+                    </div>
+                </li>
+
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image4.png" alt="Beach Spider Lily"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Beach Spider Lily</span>
+                        <span class="price">$129.00</span>
+                    </div>
+                </li>
+
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image5.png" alt="Blushing Bromeliad"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Blushing Bromeliad</span>
+                        <span class="price">$139.00</span>
+                    </div>
+                </li>
+
+                <li class="pictures-item">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image6.png" alt="Aluminum Plant" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Aluminum Plant</span>
+                        <span class="price">$179.00</span>
+                    </div>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image7.png" alt="Bird’s Nest Fern"/>
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Bird’s Nest Fern</span>
+                        <span class="price">$99.00</span>
+                    </a>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image8.png" alt="Broadleaf Lady Palm" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Broadleaf Lady Palm</span>
+                        <span class="price">$59.00</span>
+                    </a>
+                </li>
+
+                <li class="pictures-item">
+                    <a href="https://www.google.com" class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="../unit_12/img/image9.png" alt="Chinese Evergreen" />
+                            <div class="action-icons">
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-shopping"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-shopping" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-heart"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-heart" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                                <label>
+                                <input type="checkbox" />
+                                <span class="icon">
+                                    <svg
+                                    class="social-search"
+                                    viewBox="0 0 20 20"
+                                    width="20"
+                                    height="20"
+                                    >
+                                    <use href="sprite.svg#social-search" x="0" y="0"></use>
+                                    </svg>
+                                </span>
+                                </label>
+                            </div>
+                        </div>
+                        <span class="title">Chinese Evergreen</span>
+                        <span class="price">$39.00</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="pagination">
+                <ul class="pagination-list">
+                    <li class="pagination-item"><a href="#" class="pagination-link active">1</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link">4</a></li>
+                    <li class="pagination-item"><a href="#" class="pagination-link next"></a></li>
+                </ul>
+            </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="p3">
+        <div class="container">
+            <div class="up-block">
+            <div class="right">
+                <img src="../unit_12/img/image11.png" alt="Summer Cactus plant" />
+                <div class="description-one right-text">
+                <h3>Summer Cactus & Succulents</h3>
+                <p>
+                    We are an online plant shop offering a wide range of cheap and
+                    trendy plants
+                </p>
+                <a href="https://www.google.com" class="btn">
+                    Find More
+                    <svg
+                    class="social-find-more"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    height="18"
+                    >
+                    <use href="sprite.svg#social-find-more" x="0" y="0"></use>
+                    </svg>
+                </a>
+                </div>
+            </div>
+
+            <div class="left">
+                <img src="../unit_12/img/image22.png" alt="Styling Trends plant" />
+                <div class="description-one left-text">
+                <h3>Styling Trends & Much More</h3>
+                <p>
+                    We are an online plant shop offering a wide range of cheap and
+                    trendy plants
+                </p>
+                <a href="https://www.google.com" class="btn">
+                    Find More
+                    <svg
+                    class="social-find-more"
+                    viewBox="0 0 18 18"
+                    width="18"
+                    height="18"
+                    >
+                    <use href="sprite.svg#social-find-more" x="0" y="0"></use>
+                    </svg>
+                </a>
+                </div>
+            </div>
+            </div>
+
+            <div class="down-block">
+            <h2>Our Blog Posts</h2>
+            <p>
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+            </p>
+
+            <ul class="blog-posts">
+                <li class="post">
+                <img src="../unit_12/img/01.png" alt="Cactus & Succulent Care" />
+                <div class="post-content">
+                    <div>
+                    <div class="post-meta">September 12 | Read in 6 minutes</div>
+                    <div class="post-title">Cactus & Succulent Care Tips</div>
+                    <div class="post-desc">
+                        Cacti are succulents are easy care plants for any home or
+                        patio.
+                    </div>
+                    </div>
+                    <a href="https://www.google.com" class="read-more">
+                    Read More
+                    <svg
+                        class="social-read-more"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                    >
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
+                    </svg>
+                    </a>
+                </div>
+                </li>
+
+                <li class="post">
+                <img src="../unit_12/img/02.png" alt="Top Succulents for Home" />
+                <div class="post-content">
+                    <div>
+                    <div class="post-meta">September 13 | Read in 2 minutes</div>
+                    <div class="post-title">Top 10 Succulents for Your Home</div>
+                    <div class="post-desc">
+                        Best in hanging baskets. Prefers medium to high light.
+                    </div>
+                    </div>
+                    <a href="https://www.google.com" class="read-more">
+                    Read More
+                    <svg
+                        class="social-read-more"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                    >
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
+                    </svg>
+                    </a>
+                </div>
+                </li>
+
+                <li class="post">
+                <img src="../unit_12/img/03.png" alt="Cacti Care Tips" />
+                <div class="post-content">
+                    <div>
+                    <div class="post-meta">September 15 | Read in 3 minutes</div>
+                    <div class="post-title">Cacti & Succulent Care Tips</div>
+                    <div class="post-desc">
+                        Cacti and succulents thrive in containers and because most
+                        are...
+                    </div>
+                    </div>
+                    <a href="https://www.google.com" class="read-more">
+                    Read More
+                    <svg
+                        class="social-read-more"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                    >
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
+                    </svg>
+                    </a>
+                </div>
+                </li>
+
+                <li class="post">
+                <img
+                    src="../unit_12/img/04.png"
+                    alt="Best Houseplants Room By Room"
+                />
+                <div class="post-content">
+                    <div>
+                    <div class="post-meta">September 15 | Read in 2 minutes</div>
+                    <div class="post-title">Best Houseplants Room By Room</div>
+                    <div class="post-desc">
+                        The benefits of houseplants are endless. In addition to...
+                    </div>
+                    </div>
+                    <a href="https://www.google.com" class="read-more">
+                    Read More
+                    <svg
+                        class="social-read-more"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                    >
+                        <use href="sprite.svg#social-read-more" x="0" y="0"></use>
+                    </svg>
+                    </a>
+                </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+        <div class="hw11">
+        <footer class="footer">
+            <div class="footer-top">
+            <div class="footer-item garden-care">
+                <div class="icon icon-garden">
+                <img src="../unit_12/img/flowerone.svg" alt="one" />
+                <img
+                    class="bg-circle"
+                    src="../unit_12/img/Ellipse.png"
+                    alt="bg"
+                />
+                </div>
+                <h3 class="item-title">Garden Care</h3>
+                <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+                </p>
+            </div>
+
+            <div class="footer-item plant-renovation">
+                <div class="icon icon-renovation">
+                <img src="../unit_12/img/flowertwo.svg" alt="Two" />
+                <img
+                    class="bg-circle"
+                    src="../unit_12/img/Ellipse.png"
+                    alt="bg"
+                />
+                </div>
+                <h3 class="item-title">Plant Renovation</h3>
+                <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+                </p>
+            </div>
+
+            <div class="footer-item watering-garden">
+                <div class="icon icon-watering">
+                <img src="../unit_12/img/flowerthree.svg" alt="Three" />
+                <img
+                    class="bg-circle"
+                    src="../unit_12/img/Ellipse.png"
+                    alt="bg"
+                />
+                </div>
+                <h3 class="item-title">Watering Garden</h3>
+                <p class="item-text">
+                We are an online plant shop offering a wide range of cheap and
+                trendy plants.
+                </p>
+            </div>
+
+            <div class="footer-item newsletter">
+                <h3 class="item-title">Would you like to join newsletters?</h3>
+                <form class="newsletter-form">
+                <input type="email" placeholder="enter your email address..." />
+                <button type="submit" class="btn-join">Join</button>
+                </form>
+                <p class="item-text">
+                We usually post offers and challenges in newsletter. We’re your
+                online houseplant destination. We offer a wide range of
+                houseplants and accessories shipped directly from our (green)house
+                to yours!
+                </p>
+            </div>
+            </div>
+            <div class="hw11">
+                <div class="footer-middle">
+                    <div class="footer-logo">
+                        <svg class="social-logo" viewBox="0 0 150 35" width="150" height="35">
+                            <use href="sprite.svg#social-logo"></use>
+                        </svg>
+                    </div>
+
+                    <ul class="footer-contacts">
+                        <li>
+                            <svg class="social-address" viewBox="0 0 32 32" width="32" height="32">
+                                <use href="sprite.svg#social-address"></use>
+                            </svg>
+                            <div class="contact-text">
+                                70 West Buckingham Ave.<br>
+                                Farmingdale, NY 11735
+                            </div>
+                        </li>
+                        <li>
+                            <svg class="social-email" viewBox="0 0 32 32" width="32" height="32">
+                                <use href="sprite.svg#social-email"></use>
+                            </svg>
+                            <div class="contact-text">contact@greenshop.com</div>
+                        </li>
+                        <li>
+                            <svg class="social-telephone" viewBox="0 0 20 20" width="20" height="20">
+                                <use href="sprite.svg#social-telephone"></use>
+                            </svg>
+                            <div class="contact-text">+88 01911 717 490</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+            <ul class="footer-list">
+                <li class="footer-column">
+                <h4>My Account</h4>
+                <ul>
+                    <li>My Account</li>
+                    <li>Our stores</li>
+                    <li>Contact us</li>
+                    <li>Career</li>
+                    <li>Specials</li>
+                </ul>
+                </li>
+                <li class="footer-column">
+                <h4>Help & Guide</h4>
+                <ul>
+                    <li>Help Center</li>
+                    <li>How to Buy</li>
+                    <li>Shipping & Delivery</li>
+                    <li>Product Policy</li>
+                    <li>How to Return</li>
+                </ul>
+                </li>
+                <li class="footer-column">
+                <h4>Categories</h4>
+                <ul>
+                    <li>House Plants</li>
+                    <li>Potter Plants</li>
+                    <li>Seeds</li>
+                    <li>Small Plants</li>
+                    <li>Accessories</li>
+                </ul>
+                </li>
+                <li class="footer-column social">
+                <h4>Social Media</h4>
+                <ul class="social-icons">
+                    <li>
+                    <a href="https://www.facebook.com">
+                        <svg
+                        class="social-facebook"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        >
+                        <use href="sprite.svg#social-facebook" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="https://www.instagram.com">
+                        <svg
+                        class="social-instagram"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32">
+                        <use href="sprite.svg#social-instagram" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="https://www.twitter.com">
+                        <svg
+                        class="social-twitter"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        >
+                        <use href="sprite.svg#social-twitter" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="https://www.linkedin.com">
+                        <svg
+                        class="social-linkedin"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        >
+                        <use href="sprite.svg#social-linkedin" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="https://www.youtube.com">
+                        <svg class="social-youtube" viewBox="0 0 32 32" width="32" height="32">
+                            <use href="sprite.svg#social-youtube" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                    </li>
+                </ul>
+
+                <h4>We accept</h4>
+                <img src="./img/visa.png" alt="pay" />
+                </li>
+            </ul>
+            </div>
+
+            <div class="footer-copy">
+            <p>© 2021 GreenShop. All Rights Reserved.</p>
+            </div>
+        </footer>
+        </div>
+    </body>
+    <script>
+        const audio = document.getElementById('intro-audio');
+        const overlay = document.getElementById('play-overlay');
+
+        audio.volume = 0.4;
+
+        overlay.addEventListener('click', () => {
+            audio.play();
+            overlay.style.display = 'none';
+        });
+
+        setTimeout(() => {
+            document.querySelector('.intro-video').classList.add('hidden');
+            document.body.classList.remove('lock');
+            audio.pause();
+            audio.currentTime = 0;
+        }, 19000);
+</script>
+</html>
