@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mobile</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/hw14.css" />
+</head>
+
+<body>
+    <div class="container">
+    <header class="header">
+        <div class="header-inner">
+        <div class="logo">
+            <img src="./img/Logo.svg" alt="logo" />
+        </div>
+
+        <nav class="nav">
+            <ul>
+            <li><a href="https://www.google.com/">Home</a></li>
+            <li><a href="https://www.google.com/">Shop</a></li>
+            <li class="has-dropdown">
+                <input
+                type="checkbox"
+                id="toggle-plant"
+                class="dropdown-toggle"
+                />
+                <label for="toggle-plant">Plant Care</label>
+                <ul class="dropdown-content">
+                <li><a href="https://www.google.com/">Drainage</a></li>
+                <li><a href="https://www.google.com/">Fungicides</a></li>
+                <li><a href="https://www.google.com/">Fertilizer</a></li>
+                <li class="has-submenu">
+                    <input
+                    type="checkbox"
+                    id="toggle-priming"
+                    class="submenu-toggle"
+                    />
+                    <label for="toggle-priming"
+                    >Priming <span class="arrow">&gt;</span></label
+                    >
+                    <ul class="submenu">
+                    <li><a href="https://www.google.com/">Universal</a></li>
+                    <li><a href="https://www.google.com/">For Ficus</a></li>
+                    <li><a href="https://www.google.com/">For Cacti</a></li>
+                    <li><a href="https://www.google.com/">For Citrus</a></li>
+                    <li>
+                        <a href="https://www.google.com/">For those in bloom</a>
+                    </li>
+                    <li><a href="https://www.google.com/">For Orchids</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            <li><a href="https://www.google.com/">Blogs</a></li>
+            </ul>
+        </nav>
+
+        <div class="login">
+            <a href="../unit_03/GREENSHOP/Login.html" class="btn">
+            <img src="./img/Logout.svg" alt="logout" /> Login</a
+            >
+        </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-inner">
+        <div class="hero-text">
+            <span class="eyebrow">Welcome to GreenShop</span>
+            <h1>LET'S MAKE A BETTER <span class="accent">PLANET</span></h1>
+            <p class="lead">
+            We are an online plant shop offering a wide range of cheap and
+            trendy plants. Use our plants to create a unique Urban Jungle.
+            Order your favorite plants!
+            </p>
+            <a class="shop-button" href="https://www.google.com/">SHOP NOW</a>
+        </div>
+        <div class="hero-media">
+            <img src="./img/flower.png" alt="Flower" />
+        </div>
+        </div>
+    </section>
+    </div>
+</body>
+</html>
